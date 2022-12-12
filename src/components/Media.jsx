@@ -41,6 +41,11 @@ export default function Media() {
                 <li>The Social Dilemaa</li>
             </ul>
             <h3>TV Shows</h3>
+            <h3>Anime</h3>
+                <ul>
+                    <li>Attack on Titans</li>
+                    <li>Deathnote</li>
+                </ul>
             <h3>Music</h3>
             <h3>Comics</h3>
             <h3>Books</h3>
