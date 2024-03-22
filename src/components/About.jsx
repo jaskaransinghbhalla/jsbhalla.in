@@ -1,31 +1,33 @@
 export default function About() {
     return <div className="py-4">
-        <div className="grid grid-cols-4" >
-            <div className="col-span-2">
-                <h1 className=" font-extrabold">
-                    Hello there, I'm Jaskaran!
+        <div className="grid grid-cols-8" >
+            <div className="col-span-5  mr-8">
+                <h1 className="font-extrabold">
+                    Hello there, I'm Jaskaran Singh Bhalla!
                 </h1>
-                <div className="text-xs text-start">
-                    <p className="py-3">
-                        I am an undergrad at <a className="underline font-semibold">Indian Institute of Technology,Delhi</a> pursuing my Bachelors's of Technology in Textile Engineering.
-                    </p>
-                    <p className="py-3">
-                        I am also doing two Minor Degrees in <span className="font-semibold">Computer Science and Entrepreneurship.</span>
+                <div className="text text-justify">
+                    <p className="py-2">
+                        I am a senior undergrad at <a className="underline font-semibold">Indian Institute of Technology,Delhi</a> pursuing my Bachelors's of Technology in Textile Engineering.
                     </p>
                     <p>
-                        My additional interests include Psychology, Finance, Blockchain, and AI/ML.
+                        I am also doing Minor Degrees in <span className="font-semibold">Computer Science and Entrepreneurship.</span>
                     </p>
-                    <p className="py-3 italic">
-                        "In the realm of tech and business,
-                        I'm a blend of Technology & Entrepreneurship, weaving innovation into opportunity with every step"
+                    <p className="py-2">
+                        My additional interests include Finance, Blockchain, AI/ML and Psychology.
                     </p>
-                    {/* Welcome to my little space on the internet where I document my journey of learning new technologies and finding my place in the tech world. When I'm not coding, I listen to music. */}
+                    <p className="py-2">
+                    I enjoy listening to Punjabi Music and having deep conversations with people. Other than that I like listening to podcasts and exploring new topics.
+                    </p>
                 </div>
             </div>
-            <div className="col-span-2 grid justify-items-center">
+            <div className="col-span-3 grid justify-items-center">
                 <img className="rounded-full h-70 w-60 border-stone-700 border-4" src="photo.jpg"></img>
             </div>
         </div>
-
+        <blockquote className="p-4 mt-16 border-stone-500 bg-stone-600">
+            <p className="text italic leading-relaxed text-white text-justify">
+                "In the realm of Computer Science and Business,
+                I'm a blend of Technology & Entrepreneurship, weaving innovation into opportunity with every step."</p>
+        </blockquote>
     </div>
 }

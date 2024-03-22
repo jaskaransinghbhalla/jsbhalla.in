@@ -5,11 +5,11 @@ import NavBar from "./components/NavBar";
 export default function App() {
   return (
     <div className="font-mono">
-      <div className="sticky top-0 backdrop-blur-sm ">
-        <NavBar />
+      <div class="flex flex-col h-screen justify-between">
+        <div className="sticky top-0 backdrop-blur-sm "><header><NavBar /></header></div>
+        <main className="mb-auto"><MainBody /></main>
+        <footer><Footer /></footer>
       </div>
-      <MainBody />
-      <Footer />
     </div>
   )
 }

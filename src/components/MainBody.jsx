@@ -4,7 +4,7 @@ import About from "./About";
 import RecentProjects from "./RecentProjects";
 
 export default function MainBody() {
-    return <div className="mx-44">
+    return <div className="mx-48">
         <About />
         {/* <RecentProjects /> */}
         {/* <Skills /> */}
