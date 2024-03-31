@@ -19,7 +19,7 @@ export default function About() {
                 </div>
             </div>
             <div className="col-span-3 grid justify-items-center order-1 mb-8 lg:mb-0">
-                <img className="rounded-full h-56 w-48 lg:h-70 lg:w-60 border-stone-700/50 shadow-lg border" src="photo.jpg"></img>
+                <img className="rounded-full h-56 w-48 md:h-72 md:w-60 border-stone-700/50 shadow-lg border" src="photo.jpg"></img>
             </div>
         </div>
         <div className="mt-4">
