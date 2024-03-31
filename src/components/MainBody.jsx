@@ -4,10 +4,10 @@ import About from "./About";
 import RecentProjects from "./RecentProjects";
 
 export default function MainBody() {
-    return <div className="mx-48">
-        <About />
+    return <div className="mx-48 my-8">
+        <div className="m-2"><About /></div>
         {/* <RecentProjects /> */}
         {/* <Skills /> */}
-        <Contact />
+        <div className="m-2"><Contact /></div>
     </div>
 }
