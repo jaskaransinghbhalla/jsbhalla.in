@@ -7,7 +7,7 @@ export default function MainBody() {
     return <div className="mx-48 my-8">
         <div className="m-2"><About /></div>
         {/* <RecentProjects /> */}
-        {/* <Skills /> */}
-        <div className="m-2"><Contact /></div>
+        <Skills />
+        <div><Contact /></div>
     </div>
 }
