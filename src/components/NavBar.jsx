@@ -12,7 +12,7 @@ export default function NavBar() {
                     </div>
                     <div>
                         <div className="flex">
-                            <button className="mx-2 ">
+                            {/* <button className="mx-2 ">
                                 <a href="/about">
                                     About
                                 </a>
@@ -21,7 +21,7 @@ export default function NavBar() {
                                 <a href="/projects">
                                     Projects
                                 </a>
-                            </button>
+                            </button> */}
                             {/* <li>Resume</li> */}
                         </div>
                     </div>

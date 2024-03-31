@@ -1,6 +1,6 @@
 export default function Footer() {
     return <div className="text-sm">
-        <footer className="bg-stone-900 text-white px-44 py-2 text opacity-70">
+        <footer className="bg-stone-900 text-white px-44 py-4 text opacity-70">
             <div className="flex justify-between">
                 <div>
                     Built with React.js and Tailwind

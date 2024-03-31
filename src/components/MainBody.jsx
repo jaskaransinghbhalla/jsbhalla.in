@@ -5,9 +5,10 @@ import RecentProjects from "./RecentProjects";
 
 export default function MainBody() {
     return <div className="mx-48 my-8">
-        <div className="m-2"><About /></div>
+        <About />
+        {/* <Experiences /> */}
         {/* <RecentProjects /> */}
         <Skills />
-        <div><Contact /></div>
+        <Contact />
     </div>
 }
