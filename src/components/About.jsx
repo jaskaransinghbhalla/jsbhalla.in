@@ -5,9 +5,9 @@ export default function About() {
                 <h1 className="font-semibold">
                     Hello there, I'm Jaskaran Singh Bhalla!
                 </h1>
-                <div className="text text-justify">
+                <div className="text-justify md:text-justify">
                     <p className="my-2 py-2">
-                        I am a pre-final year student at <a className="font-semibold">Indian Institute of Technology, New Delhi</a> pursuing my Bachelors's of Technology in Textile Engineering with Minor Degree in <span className="font-semibold">Computer Science and Entrepreneurship.</span>
+                        I am a pre-final year student at <a className="font-semibold">Indian Institute of Technology, New Delhi</a> pursuing my Bachelors's of Technology in Textile Engineering with Minor Degree in <span className="font-semibold">Computer Science & Entrepreneurship.</span>
                     </p>
 
                     <p className="my-2 py-2">
