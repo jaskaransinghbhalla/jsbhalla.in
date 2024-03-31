@@ -1,5 +1,5 @@
 export default function About() {
-    return <div className="my-16 grid justify-items-center ">
+    return <div className="my-8 md:my-16 grid justify-items-center ">
         <div className="grid-cols-1 grid lg:grid-cols-8" >
             <div className="col-span-5 lg:mr-8 order-2 lg:order-1">
                 <h1 className="font-semibold">
