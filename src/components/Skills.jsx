@@ -4,7 +4,7 @@ export default function Skills() {
         <div className="my-6">
             Through college courses and self-learning, I've built a solid foundation in computer science and web development. Here are some technologies I'm familiar with:
         </div>
-        <div className="grid grid-cols-4 mx-4 my-3 font-medium">
+        <div className="grid grid-cols-2 md:grid-cols-4 mx-4 my-3 font-medium ">
             <ul className="list-disc">
                 <li className="my-1">Next.js</li>
                 <li className="my-1">React.js</li>
