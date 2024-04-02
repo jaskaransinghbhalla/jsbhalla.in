@@ -1,35 +1,37 @@
-import Footer from "./components/Footer";
-import MainBody from "./components/MainBody";
-import NavBar from "./components/NavBar";
+
+import Watchlog from "./pages/Watchlog";
+import Home from "./pages/Home";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Resume from "./pages/Resume";
+import Blog from "./pages/Blog";
 
 export default function App() {
-  function requestDesktop() {
-    document.getElementsByTagName('meta')['viewport'].content = 'width= 1440px'
-  }
-  return (
-    <div className="font-sans">
 
-      {/* <div className="hidden lg:block h-32 max-h-full md:max-h-screen"> */}
-      <div className="h-32 max-h-full md:max-h-screen">
-        <div className="flex flex-col h-screen justify-between">
-          <NavBar />
-          <MainBody />
-          <Footer />
+  return (
+    <>
+      <div className="font-sans">
+        <div className="h-32 max-h-full md:max-h-screen">
+          <div className="flex flex-col h-screen justify-between">
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/watchlog" element={<Watchlog />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/blog" element={<Blog />} />
+              </Routes>
+            </BrowserRouter>
+          </div>
         </div>
       </div>
-      {/* </div> */}
-
-      {/* <div className="lg:hidden flex flex-col items-center m-6 justify-center max-w-96">
-        <div className="text-wrap text-center m-5">
-          Sorry, The Website is not responsive for mobile devices.
-        </div>
-        <div className="text-wrap text-center m-5">
-          Please use a desktop or laptop to view the website.
-        </div>
-        <div className="m-8">
-          <button className="border border-slate-600 p-3 bg-slate-300" onClick={() => requestDesktop()}>Request Desktop Site</button>
-        </div>
-      </div> */}
-    </div>
+    </>
   )
 }
+
