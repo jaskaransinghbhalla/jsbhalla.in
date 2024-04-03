@@ -2,162 +2,11 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 const content = [
     {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "The Matrix",
-        genre: "Science Fiction",
-        duration: 136,
-        watched: true,
-        director: "Lana Wachowski",
-        watchDate: "01 Sep 2021"
-    },
-    {
-        title: "Inception",
-        genre: "Science Fiction",
-        duration: 148,
-        watched: false,
-        director: "Christopher Nolan",
-        watchDate: "02 Sep 2021"
-
-    },
-    {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        duration: 142,
-        watched: true,
-        director: "Frank Darabont",
-        watchDate: "03 Sep 2021"
-    },
-    {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        duration: 142,
-        watched: true,
-        director: "Frank Darabont",
-        watchDate: "03 Sep 2021"
-    },
-    {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        duration: 142,
-        watched: true,
-        director: "Frank Darabont",
-        watchDate: "03 Sep 2021"
-    },
-    {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        duration: 142,
-        watched: true,
-        director: "Frank Darabont",
-        watchDate: "03 Sep 2021"
-    },
-    {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        watched: true,
-        director: "Frank Darabont",
-        watchDate: "03 Sep 2021"
-    },
-    {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        watched: true,
-        director: "Frank Darabont",
-        watchDate: "03 Sep 2021"
-    },
-    {
-        title: "The Shawshank Redemption",
-        genre: "Drama",
-        watched: true,
-        director: "Frank Darabont",
-        watchDate: "03 Sep 2021"
+        title: "Farzi",
+        genre: "Black comedy; Crime thriller",
+        director: "Raj & DK",
+        watchDate: "February 2024",
+        platform: "Prime Video",
     },
 
 ];
@@ -176,17 +25,19 @@ export default function Watchlog() {
                                     <th className='border p-4'>Title</th>
                                     <th className='border p-4'>Genre</th>
                                     <th className='border p-4'>Director</th>
-                                    <th className='border p-4'>Watch Date</th>
+                                    <th className='border p-4'>Watched</th>
+                                    <th className='border p-4'>Platform</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {content.map((movie, index) => (
                                     <tr key={index}>
-                                        <td className='border p-4'>{index}.</td>
+                                        <td className='border p-4'>{index+1}.</td>
                                         <td className='border p-4'>{movie.title}</td>
                                         <td className='border p-4'>{movie.genre}</td>
                                         <td className='border p-4'>{movie.director}</td>
                                         <td className='border p-4'>{movie.watchDate}</td>
+                                        <td className='border p-4'>{movie.platform}</td>
                                     </tr>
                                 ))}
                             </tbody>
