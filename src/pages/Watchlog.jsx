@@ -5,7 +5,7 @@ const content = [
         title: "Farzi",
         genre: "Black comedy; Crime thriller",
         director: "Raj & DK",
-        watchDate: "February 2024",
+        watchDate: "03-05, April 2024",
         platform: "Prime Video",
     },
 
