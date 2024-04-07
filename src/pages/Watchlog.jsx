@@ -18,9 +18,6 @@ const content = [
     },
 
 ];
-useEffect(() => {
-    axios.get("")
-}, [])
 export default function Watchlog() {
     return (
         <div className="h-32 max-h-full md:max-h-screen">
