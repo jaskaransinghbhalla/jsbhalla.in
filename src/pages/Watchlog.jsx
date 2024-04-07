@@ -1,15 +1,26 @@
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import { useEffect } from 'react';
 const content = [
     {
         title: "Farzi",
-        genre: "Black comedy; Crime thriller",
+        genre: "Black comedy, Crime thriller",
         director: "Raj & DK",
         watchDate: "03-05, April 2024",
         platform: "Prime Video",
     },
+    {
+        title: "Murder Mubarak",
+        genre: "Comedy, Mystery, Horror",
+        director: "Homi Adajania",
+        watchDate: "06-07, April 2024",
+        platform: "Netflix",
+    },
 
 ];
+useEffect(() => {
+    axios.get("")
+}, [])
 export default function Watchlog() {
     return (
         <div className="h-32 max-h-full md:max-h-screen">
@@ -32,7 +43,7 @@ export default function Watchlog() {
                             <tbody>
                                 {content.map((movie, index) => (
                                     <tr key={index}>
-                                        <td className='border p-4'>{index+1}.</td>
+                                        <td className='border p-4'>{index + 1}.</td>
                                         <td className='border p-4'>{movie.title}</td>
                                         <td className='border p-4'>{movie.genre}</td>
                                         <td className='border p-4'>{movie.director}</td>
