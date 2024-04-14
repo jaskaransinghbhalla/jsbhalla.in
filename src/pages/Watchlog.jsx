@@ -16,6 +16,13 @@ const content = [
         watchDate: "06-07, April 2024",
         platform: "Netflix",
     },
+    {
+        title : "Amar Singh",
+        genre : "Biopic, Drama, Musical",
+        director : "Imtiaz Ali",
+        watchDate: "13, April 2024",
+        platform: "Netflix",
+    }
 
 ];
 export default function Watchlog() {
