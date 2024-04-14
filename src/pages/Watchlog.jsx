@@ -3,11 +3,11 @@ import Footer from '../components/Footer';
 import { useEffect } from 'react';
 const content = [
     {
-        title: "Farzi",
-        genre: "Black comedy, Crime thriller",
-        director: "Raj & DK",
-        watchDate: "03-05, April 2024",
-        platform: "Prime Video",
+        title: "Amar Singh Chamikla",
+        genre: "Biopic, Drama, Musical",
+        director: "Imtiaz Ali",
+        watchDate: "13, April 2024",
+        platform: "Netflix",
     },
     {
         title: "Murder Mubarak",
@@ -17,12 +17,14 @@ const content = [
         platform: "Netflix",
     },
     {
-        title : "Amar Singh Chamikla",
-        genre : "Biopic, Drama, Musical",
-        director : "Imtiaz Ali",
-        watchDate: "13, April 2024",
-        platform: "Netflix",
-    }
+        title: "Farzi",
+        genre: "Black comedy, Crime thriller",
+        director: "Raj & DK",
+        watchDate: "03-05, April 2024",
+        platform: "Prime Video",
+    },
+
+
 
 ];
 export default function Watchlog() {
