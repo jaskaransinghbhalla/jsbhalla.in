@@ -17,7 +17,7 @@ const content = [
         platform: "Netflix",
     },
     {
-        title : "Amar Singh",
+        title : "Amar Singh Chamikla",
         genre : "Biopic, Drama, Musical",
         director : "Imtiaz Ali",
         watchDate: "13, April 2024",
