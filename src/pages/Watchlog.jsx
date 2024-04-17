@@ -13,7 +13,7 @@ export default function Watchlog() {
             platform: "Netflix"
         },
         {
-            title: "Amar Singh Chamikla",
+            title: "Amar Singh Chamkila",
             genre: "Biopic, Drama, Musical",
             director: "Imtiaz Ali",
             watchDate: "13, April 2024",
