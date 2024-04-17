@@ -7,7 +7,7 @@ export default function Watchlog() {
     const content = [
         {
             title: "Money Heist : Berlin",
-            genre: "",
+            genre: "Crime, Drama",
             director: "Álex Pina",
             watchDate: "14-, April, 2024",
             platform: "Netflix"
