@@ -53,11 +53,11 @@ function Body() {
 
     ];
     return <div>
-        <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-bold mt-10">Watchlog</h1>
-            <table className="hidden lg:block border border-gray-300 text-sm lg:text-base mx-3 my-2 text-center mt-10">
+        <div className="flex flex-col items-center shadow-lg">
+            <h1 className="text-4xl font-bold ">Watchlog</h1>
+            <table className="hidden lg:block border border-gray-300 text-sm lg:text-base mx-3 my-2 text-center mt-10 " >
                 <thead>
-                    <tr>
+                    <tr > 
                         <th className='border p-4'>S.No.</th>
                         <th className='border p-4 '>Title</th>
                         <th className='border p-4 '>Genre</th>

@@ -22,7 +22,7 @@ const content = [
         deployment: "",
         img: "projects/crowwd.png"
     },
-    
+
 ]
 export default function Projects() {
     return <div className="h-32 max-h-full md:max-h-screen">
@@ -36,7 +36,7 @@ export default function Projects() {
 
 function Body() {
     return <div className="flex flex-col items-center mb-8">
-        <h1 className="text-4xl font-bold mt-10">Projects</h1>
+        <h1 className="text-4xl font-bold">Projects</h1>
         <div className="flex flex-col lg:flex-row flex-wrap my-4 mx-3 items-center">
             {content.map((item) => {
                 return <Card key={item.id} data={item} />
