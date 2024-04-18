@@ -38,18 +38,22 @@ export default function Skills() {
         <div className="grid grid-cols-2 md:grid-cols-4 mx-4 my-3 font-medium ">
             <ul className="list-disc">
                 <li className="my-1"><Link to="https://jaskaransinghbhalla.notion.site/Solidity-d6f2337e94d541a98baac56a1d431e98">Solidity</Link></li>
-                <li className="my-1"><Link to="https://thirdweb.com/">Thirdweb</Link></li>
+                <li className="my-1"><Link to="https://thirdweb.com/">Thirdweb.js</Link></li>
+                <li className="my-1"><Link to="https://thirdweb.com/">Web3.js</Link></li>
+                
             </ul>
             <ul className="list-disc">
                 <li className="my-1"><Link to="https://archive.trufflesuite.com/ganache/">Ganache</Link></li>
                 <li className="my-1"><Link to="https://ethereum.org/en/">Etherum</Link></li>
+                
             </ul>
             <ul className="list-disc">
                 <li className="my-1"><Link to="https://archive.trufflesuite.com/">Truffle</Link></li>
-                <li className="my-1"><Link to="https://hardhat.org/">Hardhat</Link></li>
+                <li className="my-1"><Link to="https://thirdweb.com/">MetaMask</Link></li>
             </ul>
             <ul className="list-disc">
-                <li className="my-1"><Link to="https://www.openzeppelin.com/">Openzipline</Link></li>
+                <li className="my-1"><Link to="https://www.openzeppelin.com/">Openzeepline</Link></li>
+                <li className="my-1"><Link to="https://ethereum.org/en/">Polygon Amoy</Link></li>
             </ul>
         </div>
     </div>
