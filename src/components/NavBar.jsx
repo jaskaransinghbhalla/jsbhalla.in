@@ -13,7 +13,7 @@ export default function NavBar() {
                     </div>
                     <div className="flex">
                         {/* <NavButton route="about" text="About" /> */}
-                        {/* <NavButton route="projects" text="Projects" /> */}
+                        <NavButton route="projects" text="Projects" />
                         <NavButton route="watchlog" text="Watchlog" />
                         {/* <NavButton route="blog" text="Blog" /> */}
                         {/* <NavButton route="resume" text="Resume" /> */}
