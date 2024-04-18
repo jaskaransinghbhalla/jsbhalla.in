@@ -53,7 +53,7 @@ function Body() {
 
     ];
     return <div>
-        <div className="flex flex-col items-center shadow-lg">
+        <div className="flex flex-col items-center ">
             <h1 className="text-4xl font-bold ">Watchlog</h1>
             <table className="hidden lg:block border border-gray-300 text-sm lg:text-base mx-3 my-2 text-center mt-10 " >
                 <thead>
