@@ -57,7 +57,7 @@ function Body() {
             <h1 className="text-4xl font-bold ">Watchlog</h1>
             <table className="hidden lg:block border border-gray-300 text-sm lg:text-base mx-3 my-2 text-center mt-10 " >
                 <thead>
-                    <tr > 
+                    <tr >
                         <th className='border p-4'>S.No.</th>
                         <th className='border p-4 '>Title</th>
                         <th className='border p-4 '>Genre</th>
@@ -77,7 +77,7 @@ function Body() {
                     ))}
                 </tbody>
             </table>
-            <div className="lg:hidden mb-4">
+            <div className="lg:hidden lg:mb-4">
                 {content.map((movie, index) => (
                     <div className='my-4 shadow-md rounded-xl border p-2' key={index}>
                         {/* <div className='p-1'>S.No.:{index + 1}.</div> */}
@@ -88,7 +88,6 @@ function Body() {
                     </div>
                 ))}
             </div>
-
         </div>
     </div>
 }
