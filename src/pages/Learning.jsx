@@ -17,7 +17,7 @@ function LearningSkills() {
         <div className="my-3 ">
             These are the skills that I wish to learn soon....
         </div>
-        <div className=" mx-4 my-3 font-medium ">
+        <div className=" ml-8 mr:2 my-3 font-medium ">
             <ol className="list-decimal">
                 <li className="my-1">Containerization, Docker</li>
                 <li className="my-1">Backend communication protocols</li>
@@ -72,7 +72,7 @@ function LearningSkills() {
         <div className="my-3 ">
             These are the some of the project I plan to build soon for my learning purposes....
         </div>
-        <div className=" mx-4 my-3 font-medium ">
+        <div className="ml-8 mr:2  my-3 font-medium ">
             <ol className='list-decimal'>
                 <li className="my-1">Paytm</li>
                 <li className="my-1">Zerodha</li>
@@ -84,7 +84,7 @@ function LearningSkills() {
         <div className="my-3 ">
             These are the some of the computer science domains I wish to explore soon....
         </div>
-        <div className=" mx-4 my-3 font-medium ">
+        <div className=" ml-8 mr:2  my-3 font-medium ">
             <ol className='list-decimal'>
                 <li className="my-1">Blockchain</li>
                 <li className="my-1">Aritificial Intelligence</li>
