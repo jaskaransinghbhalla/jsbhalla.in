@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 export default function NavBar() {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +35,11 @@ export default function NavBar() {
                         <NavButton route="projects" text="Projects" />
                         <NavButton route="watchlog" text="Watchlog" />
                         <NavButton route="learning" text="Learning" />
+                        {/* <button className=" justify-center mx-2 block mt-2 lg:inline-block lg:mt-0 mr-4 text-white text-base hover:bg-stone-700 px-2 py-1 rounded-xl" >
+                            <Link className="items-center" to="https://jaskaransinghbhalla.notion.site/Resources-b9102029fe8d42adafeee839015e47cd?pvs=4">
+                                <ion-icon name="albums-outline"></ion-icon>
+                            </Link>
+                        </button> */}
                         {/* <NavButton route="about" text="About" /> */}
                         {/* <NavButton route="blog" text="Blog" /> */}
                         {/* <NavButton route="resume" text="Resume" /> */}
@@ -52,5 +58,6 @@ function NavButton({ route, text }) {
         <button className="mx-2 block mt-2 lg:inline-block lg:mt-0 mr-4 text-white text-base hover:bg-stone-700 px-2 py-1 rounded-xl" onClick={() => navigate('/' + route)}>
             {text}
         </button>
+
     );
 }
