@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Blog from "./pages/Blog";
+import Learning from "./pages/Learning";
 
 export default function App() {
 
@@ -26,6 +27,7 @@ export default function App() {
                 <Route path="/watchlog" element={<Watchlog />} />
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/learning" element={<Learning />} />
               </Routes>
             </BrowserRouter>
           </div>
