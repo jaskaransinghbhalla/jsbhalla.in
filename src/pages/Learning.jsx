@@ -92,6 +92,7 @@ function LearningSkills() {
                 <li className="my-1">Data Science</li>
                 <li className="my-1">Cybersecurity</li>
                 <li className="my-1">Cloud</li>
+                <li className="my-1">Aritificial Intelligence in Finance</li>
             </ol>
         </div>
     </div >
