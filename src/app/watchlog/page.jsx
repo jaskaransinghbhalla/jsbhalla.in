@@ -1,5 +1,5 @@
 import MovieGrid from "@/components/watchlog/movie-grid";
-export default async function Watchlog() {
+export default function Watchlog() {
   return (
     <div className="h-32 max-h-full md:max-h-screen">
       <div className="flex flex-col h-screen justify-between">

@@ -1,5 +1,5 @@
+import { revalidatePath } from "next/cache";
 import notion from "../../../lib/notion";
-export const fetchCache = "force-no-store";
 
 export async function getWatchlogs() {
   const databaseId = process.env.WATCHLOGS_DB_ID;
@@ -11,6 +11,28 @@ export async function getWatchlogs() {
         direction: "descending",
       },
     ],
+    filter: {
+      and: [
+        {
+          property: "Status",
+          status: {
+            equals: "Watched",
+          },
+        },
+        {
+          timestamp: "created_time",
+          created_time: {
+            on_or_after: "2024-01-01",
+          },
+        },
+        // {
+        //   property: "Type",
+        //   select: {
+        //     equals: "Movie",
+        //   },
+        // }
+      ],
+    },
     properties: {
       Title: { property: "Title" },
       Type: { property: "Type" },
@@ -20,6 +42,7 @@ export async function getWatchlogs() {
       Favourite: { property: "Favourite" },
     },
   });
+  console.log(response.results.length);
 
   let filteredProperties = response.results.map((page) => {
     return {
@@ -29,8 +52,10 @@ export async function getWatchlogs() {
       image: page.properties.Image.files[0] || "",
     };
   });
+
   filteredProperties = filteredProperties.filter(
     (item) => item.status === "Watched"
   );
+  revalidatePath("/watchlog", 10);
   return filteredProperties;
 }
