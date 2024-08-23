@@ -6,19 +6,6 @@ const nextConfig = {
     loader: "custom",
     loaderFile: "./src/utils/imageLoader.js",
   },
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "no-store",
-          },
-        ],
-      },
-    ];
-  },
 };
 
 export default nextConfig;

@@ -1,5 +1,5 @@
-"use client";
-import Introduction from "@/components/introduction";
+// import Introduction from "@/components/introduction";
+import Introduction from "@/components/Introduction";
 import Skills from "@/components/skills";
 import Contact from "@/components/contact";
 

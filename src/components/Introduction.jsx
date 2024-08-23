@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Introduction() {
   return (
@@ -14,8 +14,8 @@ export default function Introduction() {
               <a className="font-semibold">
                 Indian Institute of Technology, New Delhi
               </a>{" "}
-              pursuing my Bachelors&apos;s of Technology in Textile Engineering with
-              Minor Degree in{" "}
+              pursuing my Bachelors&apos;s of Technology in Textile Engineering
+              with Minor Degree in{" "}
               <span className="font-semibold">
                 Computer Science &amp; Entrepreneurship.
               </span>
@@ -27,8 +27,8 @@ export default function Introduction() {
               podcasts.
             </p>
             <p className="my-2 py-2">
-              I&apos;m always looking for new opportunities to learn and grow, so
-              feel free to reach out to me!
+              I&apos;m always looking for new opportunities to learn and grow,
+              so feel free to reach out to me!
             </p>
           </div>
         </div>
@@ -45,9 +45,9 @@ export default function Introduction() {
       <div className="mt-4">
         <blockquote className="lg:mx-24 px-4 lg:px-14 py-4 mt-6 border-stone-500 bg-stone-600 shadow-md ">
           <p className="text-center italic leading-relaxed text-white">
-            &ldquo;In the realm of Computer Science and Business, I&apos;m a blend of
-            Technology &amp; Entrepreneurship, weaving innovation into opportunity
-            at every step&rdquo;
+            &ldquo;In the realm of Computer Science and Business, I&apos;m a
+            blend of Technology &amp; Entrepreneurship, weaving innovation into
+            opportunity at every step&rdquo;
           </p>
         </blockquote>
       </div>
