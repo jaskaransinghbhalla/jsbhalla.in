@@ -1,5 +1,4 @@
-"use server"
-export const fetchCache = 'force-no-store';
+"use server";
 import MovieGrid from "@/components/movie-grid";
 
 export default async function Watchlog() {
