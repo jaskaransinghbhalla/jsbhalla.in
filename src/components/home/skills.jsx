@@ -13,10 +13,10 @@ export default function Skills() {
           return (
             <div key={item.title}>
               <h2>{item.title}</h2>
-              <ul className="list-disc my-2">
+              <ul key={item.title} className="list-disc my-2">
                 {item.skills.map((skill) => {
                   return (
-                    <li key={item.skill} className="my-1">
+                    <li key={skill} className="my-1">
                       {skill}
                     </li>
                   );
