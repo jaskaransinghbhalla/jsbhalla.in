@@ -1,5 +1,5 @@
 import notion from "../../../lib/notion";
-
+export const fetchCache = "force-no-store";
 export async function getWatchlogs() {
   const databaseId = process.env.WATCHLOGS_DB_ID;
   const response = await notion.databases.query({
