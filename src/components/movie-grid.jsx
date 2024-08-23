@@ -1,10 +1,11 @@
 import Image from "next/image";
-
-const MovieGrid = ({ content }) => {
+import { getWatchlogs } from "@/app/actions/watchlog";
+export default async function MovieGrid() {
+  const content = await getWatchlogs();
   return (
     <div className="px-4 lg:px-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {content.map((movie, index) => (
+        {content?.map((movie, index) => (
           <div
             className="flex flex-col shadow-md rounded-xl border overflow-hidden"
             key={index}
@@ -29,6 +30,4 @@ const MovieGrid = ({ content }) => {
       </div>
     </div>
   );
-};
-
-export default MovieGrid;
+}
