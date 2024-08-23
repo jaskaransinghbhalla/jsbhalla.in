@@ -1,18 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import imageLoader from "../utils/imageLoader";
+
 export default function Card({ data }) {
   return (
     <div className="flex flex-col my-4 lg:mx-8 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-72 lg:w-80">
       <div className="h-32lg:h-40 m-2 lg:h-56 overflow-hidden text-white bg-clip rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
-        <Image
-          loader={imageLoader}
-          src={movie.url}
-          alt={movie.title}
-          fill
+        <img
+          className="px-2 lg:px-4 h-56"
+          src={data.img}
+          alt="card-image"
           style={{ objectFit: "cover" }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-          unoptimized
         />
       </div>
       <div className="px-6 pb-4">

@@ -60,21 +60,22 @@ function Body({ content }) {
         <div className="flex flex-wrap px-4 lg:mb-4">
           <MovieGrid content={content}></MovieGrid>
         </div>
-        <div className="lg : hidden lg:mb-4">
-          {content.map((movie, index) => (
-            <div className="my-4 shadow-md rounded-xl border p-2" key={index}>
-              {/* <div className='p-1'>S.No.:{index + 1}.</div> */}
-              <div className="p-1">
-                <Image src={movie.url} />
-              </div>
-              <div className="p-1">Title : {movie.title}</div>
-              {/* <div className="p-1 ">Genre : {movie.genre}</div> */}
-              {/* <div className="p-1 ">Director : {movie.director}</div> */}
-              <div className="p-1">Watched on : {movie.date}</div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
+
+  //   <div className="lg : hidden lg:mb-4">
+  //   {content.map((movie, index) => (
+  //     <div className="my-4 shadow-md rounded-xl border p-2" key={index}>
+  //       {/* <div className='p-1'>S.No.:{index + 1}.</div> */}
+  //       <div className="p-1">
+  //         {/* <Image src={movie.image?.file?.url} /> */}
+  //       </div>
+  //       <div className="p-1">Title : {movie.title}</div>
+  //       {/* <div className="p-1 ">Genre : {movie.genre}</div> */}
+  //       {/* <div className="p-1 ">Director : {movie.director}</div> */}
+  //       <div className="p-1">Watched on : {movie.date}</div>
+  //     </div>
+  //   ))}
+  // </div>
 }
