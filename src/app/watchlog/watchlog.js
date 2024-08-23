@@ -1,9 +1,7 @@
-import { revalidatePath } from "next/cache";
 import notion from "../../../lib/notion";
 export const fetchCache = "force-no-store";
 
 export async function getWatchlogs() {
-  revalidatePath("/watchlog", 60);
   const databaseId = process.env.WATCHLOGS_DB_ID;
   const response = await notion.databases.query({
     database_id: databaseId,
