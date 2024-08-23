@@ -1,4 +1,3 @@
-"use client";
 import Card from "@/components/project/card";
 import { projectsData } from "../../../data/data";
 
