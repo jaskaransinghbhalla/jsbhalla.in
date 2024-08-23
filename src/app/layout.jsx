@@ -1,7 +1,6 @@
-import { Inter } from "next/font/google";
 import "../../globals.css";
+import { Inter } from "next/font/google";
 import NavBar from "@/components/layout/navbar";
-export const fetchCache = 'force-no-store';
 
 const inter = Inter({ subsets: ["latin"] });
 

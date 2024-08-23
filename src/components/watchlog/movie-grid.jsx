@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getWatchlogs } from "@/app/watchlog/watchlog";
-export const fetchCache = "force-no-store";
 export default async function MovieGrid() {
   const content = await getWatchlogs();
   return (
