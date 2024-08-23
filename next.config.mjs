@@ -7,6 +7,5 @@ const nextConfig = {
     loaderFile: "./src/utils/imageLoader.js",
   },
 };
-export const fetchCache = 'force-no-store';
 
 export default nextConfig;
