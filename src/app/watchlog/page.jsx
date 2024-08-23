@@ -7,20 +7,9 @@ import MovieGrid from "@/components/movie-grid";
 export default function Watchlog() {
   const [content, setContent] = useState([]);
   useEffect(() => {
-    axios
-      .get("/api/watchlogs", {
-        headers: {
-          "Cache-Control": "no-cache, no-store, must-revalidate",
-          Pragma: "no-cache",
-          Expires: "0",
-        },
-        params: {
-          _t: new Date().getTime(), // Add a timestamp to force a fresh request
-        },
-      })
-      .then((response) => {
-        setContent(response.data);
-      });
+    axios.get("/api/watchlogs").then((res) => {
+      setContent(res.data);
+    });
   }, []);
   return (
     <div className="h-32 max-h-full md:max-h-screen">

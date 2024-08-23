@@ -1,16 +1,16 @@
 import { getWatchlogs } from "../../../../lib/getWatchlogs";
 
 export async function GET() {
+  console.log("GET /api/watchlogs");
   try {
     const data = await getWatchlogs();
-    console.log(data);
     if (data) {
       return Response.json(data, {
         status: 200,
         headers: {
-          'Cache-Control': 'no-store, max-age=0',
-          'Pragma': 'no-cache',
-          'Expires': '0',
+          "Cache-Control": "no-store, max-age=0",
+          Pragma: "no-cache",
+          Expires: "0",
         },
       });
     } else {
