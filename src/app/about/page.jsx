@@ -1,5 +1,5 @@
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import NavBar from '../../components/navbar';
+import Footer from '../../components/footer';
 export default function About() {
     return <div className="h-32 max-h-full md:max-h-screen">
         <div className="flex flex-col h-screen justify-between">
