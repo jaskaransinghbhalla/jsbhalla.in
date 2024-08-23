@@ -11,11 +11,15 @@ export default function Skills() {
       <div className="grid grid-cols-2 md:grid-cols-4 mx-4 my-3 font-medium ">
         {skillsData.map((item) => {
           return (
-            <div>
+            <div key={item.title}>
               <h2>{item.title}</h2>
               <ul className="list-disc my-2">
                 {item.skills.map((skill) => {
-                  return <li className="my-1">{skill}</li>;
+                  return (
+                    <li key={item.skill} className="my-1">
+                      {skill}
+                    </li>
+                  );
                 })}
               </ul>
             </div>

@@ -11,11 +11,9 @@ export default function Contact() {
       <div className="flex grid grid-cols-2 md:grid-cols-5 gap-4 text-sm md:text-lg">
         {contactData.map((item) => {
           return (
-            <Button
-              key={item.children}
-              href={item.href}
-              children={item.children}
-            />
+            <Button key={item.href} href={item.href}>
+              {item.children}
+            </Button>
           );
         })}
       </div>
