@@ -43,10 +43,6 @@ export default function NavBar() {
           <div className="text-sm">
             <NavButton route="projects" text="Projects" />
             <NavButton route="watchlog" text="Watchlog" />
-            <NavButton route="learning" text="Learning" />
-            {/* <NavButton route="about" text="About" /> */}
-            {/* <NavButton route="blog" text="Blog" /> */}
-            {/* <NavButton route="resume" text="Resume" /> */}
           </div>
         </div>
       </div>
