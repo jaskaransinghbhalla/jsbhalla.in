@@ -1,5 +1,5 @@
-import Button from "./button";
-import { contactData } from "../../data/data";
+import Button from "../button";
+import { contactData } from "../../../data/data";
 
 export default function Contact() {
   return (

@@ -1,5 +1,5 @@
 "use server";
-import MovieGrid from "@/components/movie-grid";
+import MovieGrid from "@/components/watchlog/movie-grid";
 
 export default async function Watchlog() {
   return (

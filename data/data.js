@@ -75,3 +75,61 @@ export const projectsData = [
     img: "projects/col719.jpg",
   },
 ];
+
+export const skillsData = [
+  {
+    title: "Languages",
+    skills: ["C", "C++", "Java", "Python", "JavaScript", "SQL", "VHDL"],
+  },
+  {
+    title: "Frontend",
+    skills: [
+      "HTML",
+      "CSS",
+      "Tailwind",
+      "React",
+      "Next.js",
+      "Material-UI",
+      "JavaScript",
+      "Node.js",
+    ],
+  },
+  {
+    title: "Backend",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "NextAuth",
+      "Node.js",
+      "Express.js",
+      "RESTful APIs",
+      "GraphQL",
+      "Recoil",
+      "Zod",
+    ],
+  },
+  {
+    title: "Databases",
+    skills: ["MySQL", "MongoDB", "PostgreSQL", "Prisma"],
+  },
+  {
+    title: "Tools",
+    skills: ["Git", "Docker", "VS Code", "Postman", "Insomnia"],
+  },
+  {
+    title: "Deployment",
+    skills: ["AWS", "Nginx", "Reverse Proxies", "CI/CD"],
+  },
+  {
+    title: "Blockchain",
+    skills: [
+      "Solidity",
+      "Thirdweb.js",
+      "Web3.js",
+      "Ganache",
+      "Etherum",
+      "Truffle",
+      "MetaMask",
+    ],
+  },
+];
