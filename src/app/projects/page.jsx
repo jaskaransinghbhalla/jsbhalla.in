@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Card from "@/components/card";
-import { projectsData } from "@/data/data";
+import { projectsData } from "../../../data/data";
 
 export default function Projects() {
   return (
