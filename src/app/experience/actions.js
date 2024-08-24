@@ -21,6 +21,7 @@ export async function getExperience() {
       Date: { property: "Date" },
       Status: { property: "Status" },
       Github: { property: "Github" },
+      Tools: { property: "Tools" },
     },
   });
 
@@ -35,6 +36,8 @@ export async function getExperience() {
       github: page.properties.Github.url || "",
       enddate: page.properties.Date.date?.end || "",
       status: page.properties.Status.status.name || "",
+      reference: page.properties.Url.url || "",
+      tools: page.properties.Tools.multi_select.map((tool) => tool.name) || [],
     };
   });
   revalidatePath("/experience", 10);
