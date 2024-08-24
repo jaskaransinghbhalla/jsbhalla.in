@@ -1,4 +1,4 @@
-import MovieGrid from "@/components/watchlog/movie-grid";
+import MovieGrid from "@/components/watchlog/grid";
 export default function Watchlog() {
   return (
     <div className="h-32 max-h-full md:max-h-screen">

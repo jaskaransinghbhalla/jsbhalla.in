@@ -12,10 +12,10 @@ export default function Card({ data }) {
               src={data.image?.file?.url || "/api/placeholder/400/320"}
               alt={data.title}
               layout="fill"
-              unoptimized
               objectFit="cover"
               placeholder="blur"
               blurDataURL="/api/placeholder/400/320"
+              unoptimized
             />
           </div>
         </div>

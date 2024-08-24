@@ -1,8 +1,8 @@
-import Card from "@/components/project/card";
-import { getProjects } from "./actions";
+import Card from "@/components/experience/card";
+import { getExperience } from "./actions";
 
-export default async function Projects() {
-  const projects = await getProjects();
+export default async function Experience() {
+  const projects = await getExperience();
   return (
     <div className="h-32 max-h-full md:max-h-screen">
       <div className="flex flex-col h-screen justify-between">

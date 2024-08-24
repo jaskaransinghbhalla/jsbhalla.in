@@ -36,6 +36,7 @@ export default function Introduction() {
           <Image
             className="rounded-full border-stone-700/50 shadow-lg border"
             src="/photo.jpg"
+            unoptimized
             alt="Jaskaran Singh Bhalla"
             width={240}
             height={288}
