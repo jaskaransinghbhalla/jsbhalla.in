@@ -4,7 +4,7 @@ import { Calendar, Clock } from "lucide-react";
 
 export default function Card({ data }) {
   return (
-    <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
+    <div className=" w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <div className="relative h-48 w-full md:w-64 md:h-full">
@@ -38,9 +38,7 @@ export default function Card({ data }) {
                 {data.startdate} - {data.enddate}
               </span>
               <Clock className="h-4 w-4 mr-2" />
-              <span>
-                Duration: {data.duration}
-              </span>
+              <span>Duration: {data.duration}</span>
             </div>
           </div>
 
@@ -54,18 +52,4 @@ export default function Card({ data }) {
       </div>
     </div>
   );
-}
-
-function calculateDuration(startDate, endDate) {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-  const differenceInTime = end.getTime() - start.getTime();
-  const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
-
-  if (differenceInDays < 30) {
-    return `${differenceInDays} days`;
-  } else {
-    const months = Math.floor(differenceInDays / 30);
-    return `${months} month${months > 1 ? "s" : ""}`;
-  }
 }

@@ -23,6 +23,9 @@ export async function getExperience() {
       Status: { property: "Status" },
       Github: { property: "Github" },
       Tools: { property: "Tools" },
+      WorkType: { property: "Work Type" },
+      Location: { property: "Location" },
+      EmploymentType: { property: "Employment" },
     },
   });
 
@@ -33,8 +36,8 @@ export async function getExperience() {
       role: page.properties.Role.rich_text[0].plain_text || "",
       type: page.properties.Type.select.name || "",
       image: page.properties.Image.files[0] || "",
-      startdate: page.properties.Date.date?.start || "",
-      github: formatDate(page.properties.Github.url) || "",
+      github: page.properties.Github.url || "",
+      startdate: formatDate(page.properties.Date.date?.start) || "",
       enddate: formatDate(page.properties.Date.date?.end) || "",
       status: page.properties.Status.status.name || "",
       reference: page.properties.Url.url || "",
@@ -44,8 +47,12 @@ export async function getExperience() {
           page.properties.Date.date?.start,
           page.properties.Date.date?.end
         ) || "",
+      workType: page.properties.WorkType.select.name || "",
+      location: page.properties.Location.rich_text[0].plain_text || "",
+      employmentType: page.properties.Employment.select.name || "",
     };
   });
+  console.log(filteredProperties);
   revalidatePath("/experience", 10);
   return filteredProperties;
 }

@@ -11,7 +11,7 @@ export default async function Experience() {
           <div className="flex-wrap my-6 items-center">
             {projects.map((item) => {
               return (
-                <div className="py-4" key={item.title}>
+                <div className="py-4 mx-3" key={item.title}>
                   <Card data={item} />
                 </div>
               );
