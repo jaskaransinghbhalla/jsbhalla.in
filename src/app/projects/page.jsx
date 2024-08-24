@@ -7,7 +7,7 @@ export default function Projects() {
       <div className="flex flex-col h-screen justify-between">
         <div className="flex flex-col items-center mb-8">
           <h1 className="text-4xl font-bold my-4">Projects</h1>
-          <div className="flex flex-col lg:flex-row lg:justify-center flex-wrap my-6 mx-3 items-center">
+          <div className="flex-wrap my-6 mx-3 items-center">
             {projectsData.map((item) => {
               return <Card key={item.id} data={item} />;
             })}
