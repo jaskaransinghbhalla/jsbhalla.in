@@ -16,7 +16,6 @@ const getStatusColorClass = (status) => {
 };
 export default function Card({ data }) {
   const statusColorClass = getStatusColorClass(data.status);
-  console.log(data.status);
   return (
     <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
       <div className="md:flex">

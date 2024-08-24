@@ -42,7 +42,6 @@ export async function getWatchlogs() {
       Favourite: { property: "Favourite" },
     },
   });
-  console.log(response.results.length);
 
   let filteredProperties = response.results.map((page) => {
     return {
