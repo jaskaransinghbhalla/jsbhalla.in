@@ -53,6 +53,6 @@ export async function getExperience() {
     };
   });
   console.log(filteredProperties);
-  revalidatePath("/experience", 10);
+  revalidatePath("/experience", 7200);
   return filteredProperties;
 }

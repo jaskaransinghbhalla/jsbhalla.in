@@ -42,6 +42,6 @@ export async function getProjects() {
         ) || "",
     };
   });
-  revalidatePath("/projects", 10);
+  revalidatePath("/projects", 7200);
   return filteredProperties;
 }
