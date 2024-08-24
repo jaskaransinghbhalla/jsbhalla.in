@@ -8,7 +8,12 @@ export default function Page() {
           Resume
         </h2>
       </div>
-      <CVPage />
+      <div className="hidden lg:inline-flex">
+        <CVPage device={""} />
+      </div>
+      <div className="lg:hidden">
+        <CVPage device={"mobile"} />
+      </div>
     </div>
   );
 }

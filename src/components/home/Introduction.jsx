@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EnhancedQuoteComponent from "./quote";
 
 export default function Introduction() {
   return (
@@ -43,15 +44,7 @@ export default function Introduction() {
           />
         </div>
       </div>
-      <div className="mt-4">
-        <blockquote className="lg:mx-24 px-4 lg:px-14 py-4 mt-6 border-stone-500 bg-stone-600 shadow-md ">
-          <p className="text-center italic leading-relaxed text-white">
-            &ldquo;In the realm of Computer Science and Business, I&apos;m a
-            blend of Technology &amp; Entrepreneurship, weaving innovation into
-            opportunity at every step&rdquo;
-          </p>
-        </blockquote>
-      </div>
+      <EnhancedQuoteComponent />
     </div>
   );
 }
