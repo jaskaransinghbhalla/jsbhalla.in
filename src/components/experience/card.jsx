@@ -16,6 +16,7 @@ const getStatusColorClass = (status) => {
 };
 export default function Card({ data }) {
   const statusColorClass = getStatusColorClass(data.status);
+  console.log(data.status);
   return (
     <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
       <div className="md:flex">
@@ -54,7 +55,7 @@ export default function Card({ data }) {
               </span>
               <Clock className="h-4 w-4 mr-2" />
               <span>
-                Duration: {calculateDuration(data.startdate, data.enddate)}
+                Duration: {data.duration}
               </span>
             </div>
           </div>
@@ -89,16 +90,4 @@ export default function Card({ data }) {
   );
 }
 
-function calculateDuration(startDate, endDate) {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-  const differenceInTime = end.getTime() - start.getTime();
-  const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
 
-  if (differenceInDays < 30) {
-    return `${differenceInDays} days`;
-  } else {
-    const months = Math.floor(differenceInDays / 30);
-    return `${months} month${months > 1 ? "s" : ""}`;
-  }
-}

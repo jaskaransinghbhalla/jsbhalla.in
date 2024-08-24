@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import notion from "../../../lib/notion";
-
+import formatDate from "@/utils/format-date";
+import calculateDuration from "@/utils/duration";
 export async function getExperience() {
   const databaseId = process.env.EXPERIENCE_DB_ID;
   const response = await notion.databases.query({
@@ -33,11 +34,16 @@ export async function getExperience() {
       type: page.properties.Type.select.name || "",
       image: page.properties.Image.files[0] || "",
       startdate: page.properties.Date.date?.start || "",
-      github: page.properties.Github.url || "",
-      enddate: page.properties.Date.date?.end || "",
+      github: formatDate(page.properties.Github.url) || "",
+      enddate: formatDate(page.properties.Date.date?.end) || "",
       status: page.properties.Status.status.name || "",
       reference: page.properties.Url.url || "",
       tools: page.properties.Tools.multi_select.map((tool) => tool.name) || [],
+      duration:
+        calculateDuration(
+          page.properties.Date.date?.start,
+          page.properties.Date.date?.end
+        ) || "",
     };
   });
   revalidatePath("/experience", 10);

@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import notion from "../../../lib/notion";
-
+import formatDate from "@/utils/format-date";
+import calculateDuration from "@/utils/duration";
 export async function getProjects() {
   const databaseId = process.env.PROJECTS_DB_ID;
   const response = await notion.databases.query({
@@ -31,9 +32,14 @@ export async function getProjects() {
       deployment: page.properties.Deployment.url || "",
       image: page.properties.Image.files[0] || "",
       isdeployed: page.properties.Deployed.checkbox || "",
-      startdate: page.properties.Date.date?.start || "",
-      enddate: page.properties.Date.date?.end || "",
+      startdate: formatDate(page.properties.Date.date?.start) || "",
+      enddate: formatDate(page.properties.Date.date?.end) || "",
       status: page.properties.Status.status.name || "",
+      duration:
+        calculateDuration(
+          page.properties.Date.date?.start,
+          page.properties.Date.date?.end
+        ) || "",
     };
   });
   revalidatePath("/projects", 10);

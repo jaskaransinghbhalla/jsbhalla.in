@@ -39,7 +39,7 @@ export default function Card({ data }) {
               </span>
               <Clock className="h-4 w-4 mr-2" />
               <span>
-                Duration: {calculateDuration(data.startdate, data.enddate)}
+                Duration: {data.duration}
               </span>
             </div>
           </div>
