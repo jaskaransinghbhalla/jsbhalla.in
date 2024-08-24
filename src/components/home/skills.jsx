@@ -22,12 +22,12 @@ const SkillsShowcase = async () => {
   return (
     <div className="md:mt-6 md:mb-16">
       <div className="text-xl md:text-2xl font-bold">My Skills</div>
-      <p className="mb-6 text-gray-700">
+      <p className="mb-6 text-gray-700 my-4">
         Through college courses and self-learning, I&apos;ve built a solid foundation
         in computer science and web development. Here are some technologies I&apos;m
         familiar with:
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-2">
         {Object.entries(skillsData).map(([category, skills]) => (
           <SkillCategory key={category} title={category} skills={skills} />
         ))}
