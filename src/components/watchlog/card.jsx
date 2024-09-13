@@ -1,4 +1,6 @@
 import Image from "next/image";
+import formatDate from "@/utils/format-date";
+
 export default function MovieCard({ movie }) {
   return (
     <div className="flex flex-col shadow-md rounded-xl border overflow-hidden">
@@ -16,7 +18,9 @@ export default function MovieCard({ movie }) {
       </div>
       <div className="p-4 flex-grow">
         <h3 className="font-semibold text-lg mb-2">{movie.title}</h3>
-        <p className="text-sm text-gray-600">Watched on: {movie.date}</p>
+        <p className="text-sm text-gray-600">
+          Watched on: {formatDate(movie.date)}
+        </p>
       </div>
     </div>
   );
