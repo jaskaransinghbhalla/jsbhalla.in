@@ -11,7 +11,7 @@ const CoursesCategory = ({ courses }) => (
     <div className="grid grid-cols-2 my-3 items-center">
       {courses.map((item) => {
         return (
-          <div className="py-4 mx-3" key={item.title}>
+          <div className="py-4 mx-3" key={item.code}>
             <Card key={item.code} data={item} />
           </div>
         );
