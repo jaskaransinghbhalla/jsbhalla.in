@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  jsbhalla.in:
+    image: jaskaransinghbhalla/jsbhalla.in
+    container_name: jsbhalla.in
+    ports:
+      - "3000:3000"
