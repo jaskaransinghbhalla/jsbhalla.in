@@ -45,7 +45,7 @@ export default function NavBar() {
             <NavButton route="experience" text="Experience" />
             <NavButton route="courses" text="Courses" />
             <NavButton route="cv" text="Resume" />
-            <NavButton route="watchlog" text="Watchlog" />
+            {/* <NavButton route="watchlog" text="Watchlog" /> */}
           </div>
         </div>
       </div>
