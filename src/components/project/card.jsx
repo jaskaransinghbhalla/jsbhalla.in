@@ -39,7 +39,7 @@ export default function Card({ data }) {
                 {data.title}
               </h2>
               <span
-                className={`px-3 py-1 text-sm font-semibold ${statusColorClass} rounded-full`}
+                className={`px-3 py-1  text-sm font-semibold ${statusColorClass} rounded-full`}
               >
                 {data.status}
               </span>
