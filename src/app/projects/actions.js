@@ -24,6 +24,14 @@ export async function getProjects() {
     },
   });
 
+  // sort by date.end
+  response.results.sort((a, b) => {
+    return (
+      new Date(b.properties.Date.date?.end) -
+      new Date(a.properties.Date.date?.end)
+    );
+  });
+
   let filteredProperties = response.results.map((page) => {
     return {
       title: page.properties.Title.title[0].plain_text || "",
