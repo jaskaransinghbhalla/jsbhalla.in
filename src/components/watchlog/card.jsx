@@ -9,7 +9,7 @@ export default function MovieCard({ movie }) {
           <Image
             src={movie.image?.file?.url}
             alt={movie.title}
-            fill
+            layout="fill"
             unoptimized
             style={{ objectFit: "cover" }}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
