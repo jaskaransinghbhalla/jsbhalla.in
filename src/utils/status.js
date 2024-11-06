@@ -16,3 +16,15 @@ export const getStatusColorClass = (status) => {
       return "text-gray-800 bg-gray-200";
   }
 };
+// const getStatusColorClass = (status) => {
+//   switch (status.toLowerCase()) {
+//     case "done":
+//       return "text-green-800";
+//     case "not started":
+//       return "text-yellow-800";
+//     case "in progress":
+//       return "text-blue-800";
+//     default:
+//       return "text-gray-800";
+//   }
+// };

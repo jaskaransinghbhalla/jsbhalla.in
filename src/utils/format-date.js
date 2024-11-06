@@ -3,7 +3,6 @@ export default function formatDate(dateString) {
   const day = date.getDate();
   const month = date.toLocaleString("default", { month: "short" });
   const year = date.getFullYear();
-
   const suffix = getDaySuffix(day);
 
   return `${day}${suffix} ${month}, ${year}`;
@@ -21,4 +20,33 @@ function getDaySuffix(day) {
     default:
       return "th";
   }
+}
+
+export function parseCustomDate(dateString) {
+  const months = {
+    Jan: 0,
+    Feb: 1,
+    Mar: 2,
+    Apr: 3,
+    May: 4,
+    Jun: 5,
+    Jul: 6,
+    Aug: 7,
+    Sep: 8,
+    Oct: 9,
+    Nov: 10,
+    Dec: 11,
+  };
+
+  // Extract day, month, and year using regex
+  const match = dateString.match(/(\d{1,2})(?:st|nd|rd|th)? (\w{3}), (\d{4})/);
+
+  if (!match) return null;
+
+  const day = parseInt(match[1], 10);
+  const month = months[match[2]];
+  const year = parseInt(match[3], 10);
+
+  // Return a Date object
+  return new Date(year, month, day);
 }

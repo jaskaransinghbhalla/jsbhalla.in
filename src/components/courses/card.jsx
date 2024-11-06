@@ -1,19 +1,7 @@
-import BlackButton from "../button-black";
+import { getStatusColorClass } from "@/utils/status";
 import Progress from "./progress";
 import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
 import Link from "next/link";
-const getStatusColorClass = (status) => {
-  switch (status.toLowerCase()) {
-    case "done":
-      return "text-green-800";
-    case "not started":
-      return "text-yellow-800";
-    case "in progress":
-      return "text-blue-800";
-    default:
-      return "text-gray-800";
-  }
-};
 export default function Card({ data }) {
   const statusColorClass = getStatusColorClass(data.status);
   return (
