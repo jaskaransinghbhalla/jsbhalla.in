@@ -1,5 +1,6 @@
-import Card from "@/components/project/card";
+
 import { getProjects } from "./actions";
+import Timeline from "@/components/project/timeline";
 
 export default async function Projects() {
   const projects = await getProjects();
@@ -11,13 +12,14 @@ export default async function Projects() {
         </h2>
       </div>
       <div className="flex-wrap my-6 items-center">
-        {projects.map((item) => {
+        {<Timeline projects={projects} />}
+        {/* {projects.map((item) => {
           return (
             <div className="py-4" key={item.title}>
-              <Card data={item} />
+             
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );

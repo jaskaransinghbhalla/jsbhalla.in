@@ -1,13 +1,25 @@
+import { Calendar, Clock } from "lucide-react";
+import { getStatusColorClass } from "@/utils/status";
 import BlackButton from "../button-black";
 import Image from "next/image";
-import { Calendar, Clock } from "lucide-react";
+
+const DESCRIPTION_LENGTH = 20;
+
+const trimDescription = (description) => {
+  const words = description.split(" ");
+  if (words.length > DESCRIPTION_LENGTH) {
+    return words.slice(0, DESCRIPTION_LENGTH).join(" ") + "...";
+  }
+  return description;
+};
 
 export default function Card({ data }) {
+  const statusColorClass = getStatusColorClass(data.status);
   return (
     <div className=" w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
-          <div className="relative h-48 w-full md:w-64 md:h-full">
+          <div className="relative h-40 w-full md:w-64 md:h-full">
             <Image
               src={data.image?.file?.url || "/api/placeholder/400/320"}
               alt={data.title}
@@ -26,11 +38,15 @@ export default function Card({ data }) {
               <h2 className="font-bold text-2xl text-gray-800 px-2">
                 {data.title}
               </h2>
-              <span className="px-3 py-1 text-sm font-semibold text-green-800 bg-green-200 rounded-full">
+              <span
+                className={`px-3 py-1 text-sm font-semibold ${statusColorClass} rounded-full`}
+              >
                 {data.status}
               </span>
             </div>
-            <p className="text-gray-700 text-base mb-4">{data.description}</p>
+            <p className="text-gray-700 text-base mb-4 text-justify">
+              {trimDescription(data.description)}
+            </p>
 
             <div className="flex items-center text-sm text-gray-600 mb-4">
               <Calendar className="h-4 w-4 mr-2" />
