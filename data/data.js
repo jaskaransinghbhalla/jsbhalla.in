@@ -12,14 +12,14 @@ export const contactData = [
     href: "https://www.linkedin.com/in/jaskaransinghbhalla/",
     label: "LinkedIn",
   },
-  {
-    icon: FaInstagram,
-    href: "https://www.instagram.com/jaskaransinghbhalla/",
-    label: "Instagram",
-  },
+  // {
+  //   icon: FaInstagram,
+  //   href: "https://www.instagram.com/jaskaransinghbhalla/",
+  //   label: "Instagram",
+  // },
   {
     icon: FaTwitter,
-    href: "https://twitter.com/7goodeeds",
+    href: "https://twitter.com/jsbhalla1510",
     label: "Twitter",
   },
 ];
