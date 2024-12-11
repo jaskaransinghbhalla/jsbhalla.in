@@ -1,5 +1,5 @@
 import { MdEmail, MdPhone } from "react-icons/md";
-import { FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
 export const contactData = [
   {
     icon: MdEmail,
@@ -12,6 +12,12 @@ export const contactData = [
     href: "https://www.linkedin.com/in/jaskaransinghbhalla/",
     label: "LinkedIn",
   },
+  {
+    icon: FaGithub,
+    href: "https://github.com/jaskaransinghbhalla",
+    label: "Github",
+  },
+
   // {
   //   icon: FaInstagram,
   //   href: "https://www.instagram.com/jaskaransinghbhalla/",
