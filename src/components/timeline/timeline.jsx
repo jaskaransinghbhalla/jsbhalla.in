@@ -1,4 +1,4 @@
-import Card from "@/components/project/card";
+import Card from "@/components/timeline/card";
 import formatDate from "@/utils/format-date";
 import { parseCustomDate } from "@/utils/format-date";
 const today = new Date();
@@ -11,7 +11,7 @@ const DateBox = ({ date }) => {
   );
 };
 
-export default function Timeline({ projects }) {
+export default function Timeline({ activites }) {
   return (
     <div>
       <ul className="timeline timeline-snap-icon timeline-vertical  ">
@@ -24,7 +24,7 @@ export default function Timeline({ projects }) {
           <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700" />
         </li>
         {/* Timeline */}
-        {projects.map((item) => {
+        {activites.map((item) => {
           return (
             <li className="grid grid-cols-6  w-full " key={item.title}>
               <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />

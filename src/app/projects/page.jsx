@@ -1,6 +1,6 @@
 import { getProjects } from "./actions";
-import Timeline from "@/components/project/timeline";
-import Card from "@/components/project/card";
+import Timeline from "@/components/timeline/timeline";
+import Card from "@/components/timeline/card";
 export default async function Projects() {
   const projects = await getProjects();
   return (

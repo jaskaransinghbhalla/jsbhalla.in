@@ -41,10 +41,10 @@ export default function NavBar() {
           }`}
         >
           <div className="text-sm">
-            <NavButton route="projects" text="Projects" />
             <NavButton route="experience" text="Experience" />
-            {/* <NavButton route="courses" text="Courses" /> */}
             <NavButton route="cv" text="Resume" />
+            {/* <NavButton route="timeline" text="Timeline" /> */}
+            {/* <NavButton route="courses" text="Courses" /> */}
             {/* <NavButton route="watchlog" text="Watchlog" /> */}
           </div>
         </div>
