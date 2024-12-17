@@ -20,7 +20,7 @@ const SkillCategory = ({ title, skills }) => (
 const SkillsShowcase = async () => {
   const skillsData = await getSkillsData();
   return (
-    <div className="md:mt-6 md:mb-16">
+    <div className="md:mt-6 md:mb-16 w-screen h-screen">
       <div className="text-xl md:text-2xl font-bold">My Skills</div>
       <p className="mb-6 text-gray-700 my-4">
         Through college courses and self-learning, I&apos;ve built a solid foundation

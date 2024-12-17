@@ -1,6 +1,7 @@
 import Introduction from "@/components/home/Introduction";
 import Skills from "@/components/home/skills";
 import Contact from "@/components/home/contact";
+import FeaturedProjects from "@/components/projects/feature-projects";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <div className="mx-8 mb-8 lg:mx-48 lg:mb-1">
           <Introduction />
           <Skills />
+          <FeaturedProjects />
           <Contact />
         </div>
       </div>

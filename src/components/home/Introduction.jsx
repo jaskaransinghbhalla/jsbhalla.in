@@ -3,7 +3,7 @@ import EnhancedQuoteComponent from "./quote";
 
 export default function Introduction() {
   return (
-    <div className="my-8 md:my-16 grid justify-items-center">
+    <div className="h-screen w-screen grid justify-items-center bg-stone-900 opacity-80 text-white">
       <div className="grid-cols-1 grid lg:grid-cols-8">
         <div className="col-span-5 lg:mr-8 order-2 lg:order-1">
           <h1 className="font-semibold">

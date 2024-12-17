@@ -1,4 +1,4 @@
-import BlackButton from "../button-black";
+import BlackButton from "../ButtonStyleTwo";
 import Image from "next/image";
 import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
 import Link from "next/link";
