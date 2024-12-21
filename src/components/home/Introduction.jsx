@@ -1,17 +1,62 @@
+"use client";
 import Image from "next/image";
 import EnhancedQuoteComponent from "./quote";
-
+import { FaSortDown } from "react-icons/fa";
+import { useEffect, useState } from "react";
 export default function Introduction() {
+  const [drop, setDrop] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setDrop(true);
+    }, 3000);
+  }, [drop]);
   return (
-    <div className="h-screen w-screen grid justify-items-center bg-stone-900">
-      <div className="grid grid-cols-1 lg:grid-cols-4">
-        <div className="col-span-3 lg:mr-8 order-2 lg:order-1 text-white text-lg border">
-          {/* Name */}
-          <h1 className="font-semibold">
-            Hello there, I&apos;m Jaskaran Singh Bhalla!
-          </h1>
-          {/* Brief Intro */}
-          <div className="text-justify md:text-justify">
+    <div className="h-screen w-screen bg-stone-900 space-y-8 p-8">
+      <div className=" grid grid-cols-1 lg:grid-cols-5 pt-8 space-y-8">
+        <div className=" col-span-1 lg:order-1 "></div>
+
+        <div className=" col-span-2 lg:mr-8 lg:order-2 text-white text-lg p-8">
+          <div className="font-semibold text-3xl">Hey there!</div>
+          <div className="text-5xl my-4">
+            {"I'm "}
+            <span className="text-blue-400">{"Jaskaran Singh Bhalla!"}</span>
+          </div>
+          <div className="text-3xl my-8">
+            {(() => {
+              const titles = [
+                "I am a student at IIT Delhi",
+                "I'm a Software Engineer",
+                "I love to code",
+                // Add more titles as needed
+              ];
+              const [text, setText] = useState("");
+              const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+              useEffect(() => {
+                let index = 0;
+                setText("");
+                const fullText = titles[currentTitleIndex];
+
+                const timer = setInterval(() => {
+                  setText(fullText.slice(0, index + 1));
+                  index++;
+                  if (index === fullText.length) {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                      setCurrentTitleIndex(
+                        (prev) => (prev + 1) % titles.length
+                      );
+                    }, 2000); // wait 2 seconds before next title
+                  }
+                }, 100);
+
+                return () => clearInterval(timer);
+              }, [currentTitleIndex]);
+
+              return <span>{text}</span>;
+            })()}
+          </div>
+          {/* <div className="text-justify md:text-justify">
             <p className="my-2 py-2">
               I am a pre-final year student at{" "}
               <a className="font-semibold">
@@ -33,11 +78,12 @@ export default function Introduction() {
               I&apos;m always looking for new opportunities to learn and grow,
               so feel free to reach out to me!
             </p>
-          </div>
+          </div> */}
         </div>
-        <div className="col-span-1 grid justify-items-center order-1 mb-8 lg:mb-0">
+
+        <div className=" col-span-1 grid lg:order-3 justify-items-center">
           <Image
-            className="rounded-full border-stone-700/50 shadow-lg border"
+            className="rounded-full shadow-lg "
             src="/photo.jpg"
             unoptimized
             alt="Jaskaran Singh Bhalla"
@@ -45,9 +91,16 @@ export default function Introduction() {
             height={288}
           />
         </div>
+
+        <div className=" col-span-1 lg:order-4"></div>
       </div>
       {/* Quote */}
-      <EnhancedQuoteComponent />
+      <div className="flex justify-center">
+        <EnhancedQuoteComponent />
+      </div>
+      <div className="flex justify-center text-gray-200 animate-bounce">
+        {drop ? <FaSortDown size={70} /> : <></>}
+      </div>
     </div>
   );
 }

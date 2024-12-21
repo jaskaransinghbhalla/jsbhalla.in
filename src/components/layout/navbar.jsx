@@ -12,7 +12,7 @@ export default function NavBar() {
     <div className="sticky top-0 backdrop-blur-sm z-50">
       <div className="px-4 lg:px-44 py-2 lg:py-4 flex justify-between items-center flex-wrap bg-stone-900">
         <div className="flex items-center text-white mr-6 lg:mr-72">
-          <button className="text-lg" onClick={() => router.push("/")}>
+          <button className="text-xl lg:text-2xl hover:text-blue-400" onClick={() => router.push("/")}>
             Jaskaran Singh Bhalla
           </button>
         </div>
@@ -59,7 +59,7 @@ function NavButton({ route, text }) {
   const router = useRouter();
   return (
     <button
-      className="mx-2 block mt-2 lg:inline-block lg:mt-0 mr-4 text-white text-base hover:bg-gray-700 px-2 py-1 rounded-xl"
+      className="text-lg mx-2 block mt-2 lg:inline-block lg:mt-0 mr-4 text-white text-base hover:text-blue-400 px-2 py-1 rounded-xl"
       onClick={() => router.push(`/${route}`)}
     >
       {text}
