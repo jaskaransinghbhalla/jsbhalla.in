@@ -1,8 +1,10 @@
+import { getServerSession } from "next-auth";
 import Card from "../../components/courses/card";
 import { getCourses } from "./actions";
+import { Authenticate } from "@/components/authenticate";
 
 const CoursesCategory = ({ courses }) => (
-  <div className="">
+  <div>
     <div>
       <h3 className="text-2xl font-bold text-gray-800 border-b-2 border-gray-900 pb-2">
         {courses[0].category}
@@ -22,19 +24,24 @@ const CoursesCategory = ({ courses }) => (
 
 export default async function Courses() {
   const courses = await getCourses();
-  return (
-    <div className="flex flex-col items-center mb-8">
-      <div className=" w-full px-4 mt-5 flex">
-        <h2 className="text-4xl font-bold text-gray-800 border-b-2 border-gray-900 pb-2 m-4">
-          Courses
-        </h2>
-      </div>
+  const session = await getServerSession();
+  if (session) {
+    return (
+      <div className="flex flex-col items-center mb-8">
+        <div className=" w-full px-4 mt-5 flex">
+          <h2 className="text-4xl font-bold text-gray-800 border-b-2 border-gray-900 pb-2 m-4">
+            Courses
+          </h2>
+        </div>
 
-      <div className="my-3 items-center">
-        {Object.entries(courses).map(([category, item]) => (
-          <CoursesCategory key={category} courses={item} />
-        ))}
+        <div className="my-3 items-center">
+          {Object.entries(courses).map(([category, item]) => (
+            <CoursesCategory key={category} courses={item} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <Authenticate callbackUrl="/courses" />;
+  }
 }

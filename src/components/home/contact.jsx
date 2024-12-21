@@ -1,5 +1,5 @@
 import { contactData } from "../../data/data";
-import ButtonStyleOne from "../ButtonStyleOne";
+import ButtonStyleOne from "../buttons/ButtonStyleOne";
 import React from "react";
 
 const ContactSection = () => {
