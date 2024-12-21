@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const EnhancedQuoteComponent = () => {
   return (
-    <div className="bg-stone-800 opacity-80 p-8 rounded-lg shadow-lg max-w-4xl mx-auto my-8">
+    <div className="max-w-fit md:max-w-4xl max-h-60 p-8 mx-3">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,6 +26,7 @@ const EnhancedQuoteComponent = () => {
         >
           In the realm of Computer Science and Business, I&apos;m a blend of
           Technology & Entrepreneurship,
+          <span className="block mt-2"></span>
           <span className="block mt-2">
             weaving innovation into opportunity at every step
           </span>

@@ -1,19 +1,15 @@
-import Introduction from "@/components/home/Introduction";
-import Skills from "@/components/home/skills";
 import Contact from "@/components/home/contact";
 import FeaturedProjects from "@/components/projects/feature-projects";
+import Introduction from "@/components/home/Introduction";
+import Skills from "@/components/home/skills";
 
 export default function Home() {
   return (
-    <div className="h-32 max-h-full md:max-h-screen">
-      <div className="flex flex-col h-screen justify-between">
-        <div className="mx-8 mb-8 lg:mx-48 lg:mb-1">
-          <Introduction />
-          <Skills />
-          <FeaturedProjects />
-          <Contact />
-        </div>
-      </div>
+    <div>
+      <Introduction />
+      <Skills />
+      <FeaturedProjects />
+      <Contact />
     </div>
   );
 }

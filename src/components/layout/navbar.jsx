@@ -8,7 +8,7 @@ export default function NavBar() {
 
   return (
     <div className="sticky top-0 backdrop-blur-sm z-50">
-      <div className="px-4 lg:px-44 py-2 lg:py-4 flex justify-between items-center flex-wrap bg-stone-900 opacity-80">
+      <div className="px-4 lg:px-44 py-2 lg:py-4 flex justify-between items-center flex-wrap bg-stone-900">
         <div className="flex items-center text-white mr-6 lg:mr-72">
           <button className="text-lg" onClick={() => router.push("/")}>
             Jaskaran Singh Bhalla
