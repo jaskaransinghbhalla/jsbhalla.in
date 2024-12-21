@@ -1,5 +1,5 @@
 import React from "react";
-import { getSkillsData } from "@/app/actions";
+import { getSkillsData } from "../../app/actions";
 
 const SkillCategory = ({ title, skills }) => (
   <div className="bg-stone-300 text-stone-700 rounded-lg shadow-mdhover:shadow-lg transition-shadow border p-4">

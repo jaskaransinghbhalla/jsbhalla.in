@@ -1,4 +1,4 @@
-import { getWatchlogs } from "@/app/watchlog/actions";
+import { getWatchlogs } from "../../app/watchlog/actions";
 import MovieCard from "./card";
 export default async function MovieGrid() {
   const content = await getWatchlogs();

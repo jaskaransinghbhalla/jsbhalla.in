@@ -1,5 +1,5 @@
 import { revalidatePath } from "next/cache";
-import notion from "../../../lib/notion";
+import notion from "../../lib/notion";
 
 export async function getWatchlogs() {
   const databaseId = process.env.WATCHLOGS_DB_ID;

@@ -1,4 +1,4 @@
-import { contactData } from "../../../data/data";
+import { contactData } from "../../data/data";
 import ButtonStyleOne from "../ButtonStyleOne";
 import React from "react";
 

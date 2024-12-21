@@ -1,4 +1,4 @@
-import Card from "@/components/courses/card";
+import Card from "../../components/courses/card";
 import { getCourses } from "./actions";
 
 const CoursesCategory = ({ courses }) => (

@@ -1,22 +1,18 @@
-"use client";
 import "../../globals.css";
-import { Inter } from "next/font/google";
-// import NavBar from "@/components/layout/navbar";
-import { SessionProvider } from "next-auth/react";
-const inter = Inter({ subsets: ["latin"] });
+import NavBar from "../components/layout/navbar";
+import NextAuthProvider from "@/providers/NextAuthProvider";
+export const metadata = {
+  title: "Jaskaran Singh Bhalla",
+  description:
+    "Jaskaran Singh Bhalla's personal website. A final year student at IIT Delhi, interested in Computer Science and Entrepreneurship. i like to build things. I hail from Ludhiana and am currently based in New Delhi.",
+};
 
-// export const metadata = {
-//   title: "Jaskaran Singh Bhalla",
-//   description:
-//     "Jaskaran Singh Bhalla's personal website. A final year student at IIT Delhi, interested in Computer Science and Entrepreneurship. i like to build things. I hail from Ludhiana and am currently based in New Delhi.",
-// };
-
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
-        {/* <NavBar /> */}
-        <SessionProvider>
+      <body className={` flex flex-col min-h-screen`}>
+        <NextAuthProvider>
+          <NavBar />
           <div className="flex-grow">
             <div className="h-32 max-h-full md:max-h-screen">
               <div className="flex flex-col h-screen justify-between">
@@ -26,7 +22,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
           </div>
-        </SessionProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import formatDate from "@/utils/format-date";
+import formatDate from "../../utils/format-date";
 
 export default function MovieCard({ movie }) {
   return (
     <div className="flex flex-col shadow-md rounded-xl border overflow-hidden">
-      <div className="relative w-full h-48">
+      <div className="border relative w-full h-48">
         {movie.image !== null ? (
           <Image
             src={movie.image?.file?.url}

@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import SignOutButton from "../buttons/signout-button";
+import { useSession } from "next-auth/react";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-
+  const session = useSession();
   return (
     <div className="sticky top-0 backdrop-blur-sm z-50">
       <div className="px-4 lg:px-44 py-2 lg:py-4 flex justify-between items-center flex-wrap bg-stone-900">
@@ -43,9 +45,9 @@ export default function NavBar() {
           <div className="text-sm">
             <NavButton route="experience" text="Experience" />
             <NavButton route="cv" text="Resume" />
-            {/* <NavButton route="timeline" text="Timeline" /> */}
-            {/* <NavButton route="courses" text="Courses" /> */}
-            {/* <NavButton route="watchlog" text="Watchlog" /> */}
+            <NavButton route="courses" text="Courses" />
+            <NavButton route="watchlog" text="Watchlog" />
+            {session.status !== "authenticated" ? null : <SignOutButton />}
           </div>
         </div>
       </div>
@@ -57,7 +59,7 @@ function NavButton({ route, text }) {
   const router = useRouter();
   return (
     <button
-      className="mx-2 block mt-2 lg:inline-block lg:mt-0 mr-4 text-white text-base hover:bg-stone-700 px-2 py-1 rounded-xl"
+      className="mx-2 block mt-2 lg:inline-block lg:mt-0 mr-4 text-white text-base hover:bg-gray-700 px-2 py-1 rounded-xl"
       onClick={() => router.push(`/${route}`)}
     >
       {text}

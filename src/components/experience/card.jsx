@@ -2,7 +2,7 @@ import BlackButton from "../ButtonStyleTwo";
 import Image from "next/image";
 import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
 import Link from "next/link";
-import { getStatusColorClass } from "@/utils/status";
+import { getStatusColorClass } from "../../utils/status";
 
 export default function Card({ data }) {
   const statusColorClass = getStatusColorClass(data.status);

@@ -1,6 +1,6 @@
-import Card from "@/components/timeline/card";
-import formatDate from "@/utils/format-date";
-import { parseCustomDate } from "@/utils/format-date";
+import Card from "../../components/timeline/card";
+import formatDate from "../../utils/format-date";
+import { parseCustomDate } from "../../utils/format-date";
 const today = new Date();
 
 const DateBox = ({ date }) => {

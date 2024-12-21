@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
-import notion from "../../../lib/notion";
-import formatDate from "@/utils/format-date";
-import calculateDuration from "@/utils/duration";
+import notion from "../../lib/notion";
+import formatDate from "../../utils/format-date";
+import calculateDuration from "../../utils/duration";
 export async function getExperience() {
   const databaseId = process.env.EXPERIENCE_DB_ID;
   const response = await notion.databases.query({
@@ -52,6 +52,6 @@ export async function getExperience() {
       employmentType: page.properties.Employment.select.name || "",
     };
   });
-  revalidatePath("/experience", 7200);
+  // revalidatePath("/experience", 7200);
   return filteredProperties;
 }

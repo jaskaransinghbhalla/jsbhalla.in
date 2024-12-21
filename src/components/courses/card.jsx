@@ -1,4 +1,4 @@
-import { getStatusColorClass } from "@/utils/status";
+import { getStatusColorClass } from "../../utils/status";
 import Progress from "./progress";
 import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
 import Link from "next/link";

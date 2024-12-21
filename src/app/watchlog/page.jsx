@@ -1,14 +1,9 @@
-"use client";
-import { useSession, signIn } from "next-auth/react";
-import MovieGrid from "@/components/watchlog/grid";
+import SignInButton from "@/components/buttons/signin-button";
+import MovieGrid from "../../components/watchlog/grid";
+import { getServerSession } from "next-auth";
 
-export default function Watchlog() {
-  const { data: session } = useSession();
-  const handleSignIn = async () => {
-    await signIn("credentials", {
-      callbackUrl: "/watchlog",
-    });
-  };
+export default async function Watchlog() {
+  const session = await getServerSession();
 
   if (session) {
     return (
@@ -27,12 +22,7 @@ export default function Watchlog() {
     return (
       <div className="flex flex-col m-8">
         <div className="text-xl"> Please Authenticate</div>
-        <button
-          className="bg-gray-800 text-white border rounded-xl p-2 my-8"
-          onClick={handleSignIn}
-        >
-          Sign In
-        </button>
+        <SignInButton />
       </div>
     );
   }

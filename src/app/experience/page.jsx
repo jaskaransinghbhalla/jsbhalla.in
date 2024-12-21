@@ -1,4 +1,4 @@
-import Card from "@/components/experience/card";
+import Card from "../../components/experience/card";
 import { getExperience } from "./actions";
 
 export default async function Experience() {
