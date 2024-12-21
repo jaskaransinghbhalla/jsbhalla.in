@@ -5,13 +5,7 @@ const nextConfig = {
     config.module.rules.push({
       test: /canvas\.node/,
       use: "raw-loader",
-    });
-
-    // config.optimization.minimizer = [
-    //   new TerserPlugin({
-    //     parallel: true,
-    //   }),
-    // ];
+    })
 
     return config;
   },

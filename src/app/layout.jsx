@@ -1,9 +1,8 @@
 "use client";
 import "../../globals.css";
 import { Inter } from "next/font/google";
-import NavBar from "@/components/layout/navbar";
-import { getSession, SessionProvider } from "next-auth/react";
-
+// import NavBar from "@/components/layout/navbar";
+import { SessionProvider } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata = {
@@ -13,12 +12,11 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
-  const session = getSession();
   return (
     <html lang="en" className="h-full">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <SessionProvider session={session}>
-          <NavBar />
+        {/* <NavBar /> */}
+        <SessionProvider>
           <div className="flex-grow">
             <div className="h-32 max-h-full md:max-h-screen">
               <div className="flex flex-col h-screen justify-between">
