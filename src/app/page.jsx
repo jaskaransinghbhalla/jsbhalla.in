@@ -5,7 +5,7 @@ import Contact from "../components/home/contact";
 import FeaturedProjects from "../components/projects/feature-projects";
 import Introduction from "../components/home/Introduction";
 import Skills from "../components/home/skills";
-
+import ParticlesComponent from "./particles";
 export default function Home() {
   const [load, upadateLoad] = useState(true);
 
@@ -21,6 +21,7 @@ export default function Home() {
   } else {
     return (
       <>
+        <ParticlesComponent />
         <Introduction />
         {/* <Contact /> */}
       </>

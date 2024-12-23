@@ -11,7 +11,7 @@ export default function Introduction() {
     }, 3000);
   }, [drop]);
   return (
-    <div className="h-screen w-screen bg-stone-900 space-y-8 p-8">
+    <div className="h-screen w-screen  space-y-8 p-8">
       <div className=" grid grid-cols-1 lg:grid-cols-5 pt-8 space-y-8">
         <div className=" col-span-1 lg:order-1 "></div>
 
@@ -34,7 +34,7 @@ export default function Introduction() {
 
               useEffect(() => {
                 let index = 0;
-                setText("");
+                setText("_");
                 const fullText = titles[currentTitleIndex];
 
                 const timer = setInterval(() => {
