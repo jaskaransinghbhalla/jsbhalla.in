@@ -25,14 +25,12 @@ export default function ParticlesComponent() {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
+  const particlesLoaded = (container) => {};
   // #1c1917
 
   const options = useMemo(
     () => ({
-      fpsLimit:60,
+      fpsLimit: 60,
       particles: {
         number: {
           value: 90,

@@ -43,10 +43,11 @@ export default function NavBar() {
           }`}
         >
           <div className="text-sm">
+            <NavButton route="projects" text="Projects" />
             <NavButton route="experience" text="Experience" />
-            <NavButton route="cv" text="Resume" />
             <NavButton route="courses" text="Courses" />
-            <NavButton route="watchlog" text="Watchlog" />
+            {/* <NavButton route="cv" text="Resume" /> */}
+            {/* <NavButton route="watchlog" text="Watchlog" /> */}
             {session.status !== "authenticated" ? null : <SignOutButton />}
           </div>
         </div>

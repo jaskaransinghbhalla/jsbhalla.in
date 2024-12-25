@@ -11,7 +11,7 @@ const DateBox = ({ date }) => {
   );
 };
 
-export default function Timeline({ activites }) {
+export default function Timeline({ projects }) {
   return (
     <div>
       <ul className="timeline timeline-snap-icon timeline-vertical  ">
@@ -24,7 +24,7 @@ export default function Timeline({ activites }) {
           <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700" />
         </li>
         {/* Timeline */}
-        {activites.map((item) => {
+        {projects.map((item) => {
           return (
             <li className="grid grid-cols-6  w-full " key={item.title}>
               <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
