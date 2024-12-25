@@ -10,6 +10,33 @@ export default function Introduction() {
       setDrop(true);
     }, 3000);
   }, [drop]);
+  const titles = [
+    "I am a student at IIT Delhi",
+    "I'm a Software Engineer",
+    "I love to code",
+    // Add more titles as needed
+  ];
+  const [text, setText] = useState("");
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+  useEffect(() => {
+    let index = 0;
+    setText("_");
+    const fullText = titles[currentTitleIndex];
+
+    const timer = setInterval(() => {
+      setText(fullText.slice(0, index + 1));
+      index++;
+      if (index === fullText.length) {
+        clearInterval(timer);
+        setTimeout(() => {
+          setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 2000); // wait 2 seconds before next title
+      }
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, [currentTitleIndex, titles]);
   return (
     <div className="h-screen w-screen  space-y-8 p-8">
       <div className=" grid grid-cols-1 lg:grid-cols-5 pt-8 space-y-8">
@@ -23,36 +50,6 @@ export default function Introduction() {
           </div>
           <div className="text-3xl my-8">
             {(() => {
-              const titles = [
-                "I am a student at IIT Delhi",
-                "I'm a Software Engineer",
-                "I love to code",
-                // Add more titles as needed
-              ];
-              const [text, setText] = useState("");
-              const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-
-              useEffect(() => {
-                let index = 0;
-                setText("_");
-                const fullText = titles[currentTitleIndex];
-
-                const timer = setInterval(() => {
-                  setText(fullText.slice(0, index + 1));
-                  index++;
-                  if (index === fullText.length) {
-                    clearInterval(timer);
-                    setTimeout(() => {
-                      setCurrentTitleIndex(
-                        (prev) => (prev + 1) % titles.length
-                      );
-                    }, 2000); // wait 2 seconds before next title
-                  }
-                }, 100);
-
-                return () => clearInterval(timer);
-              }, [currentTitleIndex]);
-
               return <span>{text}</span>;
             })()}
           </div>
@@ -98,9 +95,9 @@ export default function Introduction() {
       <div className="flex justify-center">
         <EnhancedQuoteComponent />
       </div>
-      <div className="flex justify-center text-gray-200 animate-bounce">
+      {/* <div className="flex justify-center text-gray-200 animate-bounce">
         {drop ? <FaSortDown size={70} /> : <></>}
-      </div>
+      </div> */}
     </div>
   );
 }
