@@ -12,7 +12,10 @@ export default function NavBar() {
     <div className="sticky top-0 backdrop-blur-sm z-50">
       <div className="px-4 lg:px-44 py-2 lg:py-4 flex justify-between items-center flex-wrap bg-stone-900">
         <div className="flex items-center text-white mr-6 lg:mr-72">
-          <button className="text-xl lg:text-2xl hover:text-blue-400" onClick={() => router.push("/")}>
+          <button
+            className="text-xl lg:text-2xl hover:text-blue-400"
+            onClick={() => router.push("/")}
+          >
             Jaskaran Singh Bhalla
           </button>
         </div>
@@ -43,8 +46,9 @@ export default function NavBar() {
           }`}
         >
           <div className="text-sm">
-            <NavButton route="projects" text="Projects" />
             <NavButton route="experience" text="Experience" />
+            <NavButton route="projects" text="Projects" />
+            <NavButton route="skills" text="Skills  " />
             <NavButton route="courses" text="Courses" />
             {/* <NavButton route="cv" text="Resume" /> */}
             {/* <NavButton route="watchlog" text="Watchlog" /> */}
