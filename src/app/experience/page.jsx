@@ -14,7 +14,7 @@ export default async function Experience() {
         {projects.map((item) => {
           return (
             <div className="py-4 mx-3" key={item.title}>
-              <Card data={item} key={item.organization}/>
+              <Card data={item} key={item.title} />
             </div>
           );
         })}
