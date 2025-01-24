@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import formatDate from "../../utils/format-date";
 
 export default function MovieCard({ movie }) {

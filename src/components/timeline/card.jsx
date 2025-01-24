@@ -1,7 +1,7 @@
 import { Calendar, Clock } from "lucide-react";
 import { getStatusColorClass } from "../../utils/status";
 import BlackButton from "../buttons/ButtonStyleTwo";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const DESCRIPTION_LENGTH = 20;
 
