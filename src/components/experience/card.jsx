@@ -1,22 +1,26 @@
+"use client";
 import BlackButton from "../buttons/ButtonStyleTwo";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
 import Link from "next/link";
 import { getStatusColorClass } from "../../utils/status";
+import { useState, useEffect } from "react";
 
 export default function Card({ data }) {
+  const [statusColorClass, setStatusColourClass] = useState(
+    getStatusColorClass(data.status)
+  );
   return (
     <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out m-4">
       <div className="md:flex">
+        
         <div className="md:flex-shrink-0">
-          <div className="relative h-48 w-full md:w-80 md:h-full">
+          <div className="relative h-48 w-full md:w-80 md:h-full rounded p-2">
             <Image
-              src={data.image?.file?.url || "/api/placeholder/400/320"}
+              src={data.image?.file?.url}
               alt={data.title}
               layout="fill"
               objectFit="contain"
-              placeholder="blur"
-              blurDataURL="/api/placeholder/400/320"
               unoptimized
             />
           </div>
@@ -30,7 +34,7 @@ export default function Card({ data }) {
               </h2>
 
               <span
-                className={`px-3 py-1 text-sm font-semibold ${getStatusColorClass(data.status)} rounded-full`}
+                className={`p-2 text-sm font-semibold rounded-full ${statusColorClass}`}
               >
                 {data.status}
               </span>

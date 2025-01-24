@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import EnhancedQuoteComponent from "./quote";
 import { FaSortDown } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -38,7 +38,7 @@ export default function Introduction() {
     return () => clearInterval(timer);
   }, [currentTitleIndex]);
   return (
-    <div className="h-screen w-screen  space-y-8 p-8">
+    (<div className="h-screen w-screen  space-y-8 p-8">
       <div className=" grid grid-cols-1 lg:grid-cols-5 pt-8 space-y-8">
         <div className=" col-span-1 lg:order-1 "></div>
 
@@ -86,7 +86,10 @@ export default function Introduction() {
             alt="Jaskaran Singh Bhalla"
             width={240}
             height={288}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
 
         <div className=" col-span-1 lg:order-4"></div>
@@ -98,6 +101,6 @@ export default function Introduction() {
       {/* <div className="flex justify-center text-gray-200 animate-bounce">
         {drop ? <FaSortDown size={70} /> : <></>}
       </div> */}
-    </div>
+    </div>)
   );
 }

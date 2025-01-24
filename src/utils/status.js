@@ -1,5 +1,4 @@
 export const getStatusColorClass = (status) => {
-  console.log(status)
   switch (status.toLowerCase()) {
     case "complete":
       return "text-green-800 bg-green-200";

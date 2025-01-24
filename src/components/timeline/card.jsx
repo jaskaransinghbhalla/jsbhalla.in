@@ -1,7 +1,7 @@
 import { Calendar, Clock } from "lucide-react";
 import { getStatusColorClass } from "../../utils/status";
 import BlackButton from "../buttons/ButtonStyleTwo";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const DESCRIPTION_LENGTH = 20;
 
@@ -16,19 +16,21 @@ const trimDescription = (description) => {
 export default function Card({ data }) {
   const statusColorClass = getStatusColorClass(data.status);
   return (
-    <div className=" w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
+    (<div className=" w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <div className="relative h-40 w-full md:w-64 md:h-full">
             <Image
               src={data.image?.file?.url || "/api/placeholder/400/320"}
               alt={data.title}
-              layout="fill"
               unoptimized
-              objectFit="cover"
               placeholder="blur"
               blurDataURL="/api/placeholder/400/320"
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover"
+              }} />
           </div>
         </div>
 
@@ -66,6 +68,6 @@ export default function Card({ data }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>)
   );
 }
