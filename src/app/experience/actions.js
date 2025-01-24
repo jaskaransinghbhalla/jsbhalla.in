@@ -52,6 +52,6 @@ export async function getExperience() {
       employmentType: page.properties.Employment.select.name || "",
     };
   });
-  // revalidatePath("/experience", 7200);
+  revalidatePath("/experience", 7200);
   return filteredProperties;
 }

@@ -5,9 +5,8 @@ import Link from "next/link";
 import { getStatusColorClass } from "../../utils/status";
 
 export default function Card({ data }) {
-  const statusColorClass = getStatusColorClass(data.status);
   return (
-    <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
+    <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out m-4">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <div className="relative h-48 w-full md:w-80 md:h-full">
@@ -15,7 +14,7 @@ export default function Card({ data }) {
               src={data.image?.file?.url || "/api/placeholder/400/320"}
               alt={data.title}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
               placeholder="blur"
               blurDataURL="/api/placeholder/400/320"
               unoptimized
@@ -31,7 +30,7 @@ export default function Card({ data }) {
               </h2>
 
               <span
-                className={`px-3 py-1 text-sm font-semibold ${statusColorClass} rounded-full`}
+                className={`px-3 py-1 text-sm font-semibold ${getStatusColorClass(data.status)} rounded-full`}
               >
                 {data.status}
               </span>
@@ -74,7 +73,7 @@ export default function Card({ data }) {
           <div className="flex items-start">
             <Wrench className="h-4 w-4 mr-2 mt-1 text-gray-600 md:mb-4" />
             <div className="flex">
-              <span className="text-gray-700 mr-2">Tools:</span>
+              <span className="text-gray-700 mr-2">{"Tools:"}</span>
               <div className="flex flex-wrap gap-2">
                 {data.tools.map((tool, index) => (
                   <span
@@ -89,7 +88,7 @@ export default function Card({ data }) {
           </div>
 
           <div className="flex justify-start space-x-4 mt-2 md:mt-4">
-            <BlackButton href={data.github}>GitHub</BlackButton>
+            <BlackButton href={data.github}>Website</BlackButton>
           </div>
         </div>
       </div>
