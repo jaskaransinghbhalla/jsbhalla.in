@@ -17,7 +17,7 @@ export default async function Projects() {
         {projects.map((item) => {
           return (
             <div className="py-4" key={item.title}>
-              <Card data={item} />
+              <Card data={item} key={item.title} />
             </div>
           );
         })}

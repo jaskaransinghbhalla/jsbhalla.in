@@ -1,5 +1,4 @@
 import { Calendar, Clock } from "lucide-react";
-import { getStatusColorClass } from "../../utils/status";
 import BlackButton from "../buttons/ButtonStyleTwo";
 import Image from "next/image";
 
@@ -13,10 +12,22 @@ const trimDescription = (description) => {
   return description;
 };
 
+const getStatusColorClass = (status) => {
+  if (status.toLowerCase() === "complete" || status.toLowerCase() === "done") {
+    return "text-green-800 bg-green-200";
+  } else if (status.toLowerCase() === "upcoming") {
+    return "text-yellow-800 bg-yellow-200";
+  } else if (status.toLowerCase() === "in progress") {
+    return "text-blue-800 bg-blue-200";
+  } else {
+    return "text-gray-800 bg-gray-200";
+  }
+};
+
 export default function Card({ data }) {
   const statusColorClass = getStatusColorClass(data.status);
   return (
-    (<div className=" w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
+    <div className=" w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <div className="relative h-40 w-full md:w-64 md:h-full">
@@ -29,8 +40,9 @@ export default function Card({ data }) {
               fill
               sizes="100vw"
               style={{
-                objectFit: "cover"
-              }} />
+                objectFit: "cover",
+              }}
+            />
           </div>
         </div>
 
@@ -68,6 +80,6 @@ export default function Card({ data }) {
           </div>
         </div>
       </div>
-    </div>)
+    </div>
   );
 }

@@ -3,17 +3,34 @@ import BlackButton from "../buttons/ButtonStyleTwo";
 import Image from "next/image";
 import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
 import Link from "next/link";
-import { getStatusColorClass } from "../../utils/status";
 import { useState, useEffect } from "react";
 
 export default function Card({ data }) {
-  const [statusColorClass, setStatusColourClass] = useState(
+  const getStatusColorClass = (status) => {
+    if (
+      status.toLowerCase() === "complete" ||
+      status.toLowerCase() === "done"
+    ) {
+      return "text-green-800 bg-green-200";
+    } else if (status.toLowerCase() === "upcoming") {
+      return "text-yellow-800 bg-yellow-200";
+    } else if (status.toLowerCase() === "in progress") {
+      return "text-blue-800 bg-blue-200";
+    } else {
+      return "text-gray-800 bg-gray-200";
+    }
+  };
+
+  const [statusColorClass, setStatusColorClass] = useState(
     getStatusColorClass(data.status)
   );
+
+  useEffect(() => {
+    setStatusColorClass(getStatusColorClass(data.status));
+  }, [data.status]);
   return (
     <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out m-4">
       <div className="md:flex">
-        
         <div className="md:flex-shrink-0">
           <div className="relative h-48 w-full md:w-80 md:h-full rounded p-2">
             <Image
