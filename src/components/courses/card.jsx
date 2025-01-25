@@ -1,8 +1,21 @@
-import { getStatusColorClass } from "../../utils/status";
 import Progress from "./progress";
-import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import Link from "next/link";
 export default function Card({ data }) {
+  const getStatusColorClass = (status) => {
+    if (
+      status.toLowerCase() === "complete" ||
+      status.toLowerCase() === "done"
+    ) {
+      return "text-green-800 bg-green-200";
+    } else if (status.toLowerCase() === "upcoming") {
+      return "text-yellow-800 bg-yellow-200";
+    } else if (status.toLowerCase() === "in progress") {
+      return "text-blue-800 bg-blue-200";
+    } else {
+      return "text-gray-800 bg-gray-200";
+    }
+  };
   const statusColorClass = getStatusColorClass(data.status);
   return (
     <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out">
