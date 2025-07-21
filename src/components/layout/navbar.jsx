@@ -8,6 +8,15 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const session = useSession();
+
+  const BUTTONS = [
+    // { route: "experience", text: "Experience" },
+    // { route: "projects", text: "Projects" },
+    // { route: "skills", text: "Skills" },
+    // { route: "courses", text: "Courses" },
+    // { route: "cv", text: "Resume" },
+    // { route: "watchlog", text: "Watchlog" },
+  ];
   return (
     <div className="sticky top-0 backdrop-blur-sm z-50">
       <div className="px-4 lg:px-44 py-2 lg:py-4 flex justify-between items-center flex-wrap bg-stone-900">
@@ -46,12 +55,9 @@ export default function NavBar() {
           }`}
         >
           <div className="text-sm">
-            <NavButton route="experience" text="Experience" />
-            <NavButton route="projects" text="Projects" />
-            <NavButton route="skills" text="Skills  " />
-            <NavButton route="courses" text="Courses" />
-            {/* <NavButton route="cv" text="Resume" /> */}
-            {/* <NavButton route="watchlog" text="Watchlog" /> */}
+            {BUTTONS.map((button) => (
+              <NavButton key={button.route} route={button.route} text={button.text} />
+            ))}
             {session.status !== "authenticated" ? null : <SignOutButton />}
           </div>
         </div>
