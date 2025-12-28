@@ -1,7 +1,12 @@
 export default function formatDate(dateString) {
+  if (!dateString) return "";
+  
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "";
+  
   const day = date.getDate();
-  const month = date.toLocaleString("default", { month: "short" });
+  // Use en-US locale to ensure consistent formatting between server and client
+  const month = date.toLocaleString("en-US", { month: "short" });
   const year = date.getFullYear();
   const suffix = getDaySuffix(day);
 

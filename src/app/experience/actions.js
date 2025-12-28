@@ -44,8 +44,12 @@ export async function getExperience() {
       image: imageUrl,
       github: page.properties.Github?.url || "",
       startdate: formatDate(page.properties.Date?.date?.start) || "",
+      rawStartDate: page.properties.Date?.date?.start || "",
       ...(page.properties.Date?.date?.end
-        ? { enddate: formatDate(page.properties.Date.date.end) }
+        ? { 
+            enddate: formatDate(page.properties.Date.date.end),
+            rawEndDate: page.properties.Date.date.end
+          }
         : {}),
       // status: page.properties.Status?.status?.name || "",
       reference: page.properties.Url?.url || "",

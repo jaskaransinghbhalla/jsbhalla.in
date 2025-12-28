@@ -1,8 +1,11 @@
-import { revalidatePath } from "next/cache";
 import notion from "../../lib/notion";
 
 export async function getWatchlogs() {
-  const databaseId = process.env.WATCHLOGS_DB_ID;
+  try {
+    const databaseId = process.env.WATCHLOGS_DB_ID;
+    if (!databaseId) {
+      return [];
+    }
   const response = await notion.databases.query({
     database_id: databaseId,
     sorts: [
@@ -35,26 +38,42 @@ export async function getWatchlogs() {
     },
     properties: {
       Title: { property: "Title" },
+      Name: { property: "Name" },
       Type: { property: "Type" },
       Platform: { property: "Platform" },
       Date: { property: "Date" },
       Status: { property: "Status" },
       Favourite: { property: "Favourite" },
+      Image: { property: "Image" },
     },
   });
 
   let filteredProperties = response.results.map((page) => {
+    const imageFile = page.properties.Image?.files?.[0];
+    const imageUrl = imageFile?.external?.url || imageFile?.file?.url || "";
+    
+    // Try different property names and types for title
+    const title = 
+      page.properties.Title?.title?.[0]?.plain_text ||
+      page.properties.Title?.rich_text?.[0]?.plain_text ||
+      page.properties.Name?.title?.[0]?.plain_text ||
+      page.properties.Name?.rich_text?.[0]?.plain_text ||
+      "";
+    
     return {
-      title: page.properties.Name.title[0].plain_text || "",
-      date: page.properties.Date.date?.start || "",
-      status: page.properties.Status.status.name || "",
-      image: page.properties.Image.files[0] || "",
+      title: title,
+      date: page.properties.Date?.date?.start || "",
+      status: page.properties.Status?.status?.name || "",
+      image: imageUrl,
     };
   });
 
   filteredProperties = filteredProperties.filter(
     (item) => item.status === "Watched"
   );
-  revalidatePath("/watchlog", 10);
   return filteredProperties;
+  } catch (error) {
+    console.error("Error fetching watchlogs:", error);
+    return [];
+  }
 }

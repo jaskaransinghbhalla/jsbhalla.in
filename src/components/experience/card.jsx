@@ -22,117 +22,145 @@ export default function Card({ data }) {
       status.toLowerCase() === "complete" ||
       status.toLowerCase() === "done"
     ) {
-      return "text-green-800 bg-green-200";
+      return "text-green-700 bg-green-50 border-green-200";
     } else if (status.toLowerCase() === "upcoming") {
-      return "text-yellow-800 bg-yellow-200";
+      return "text-yellow-700 bg-yellow-50 border-yellow-200";
     } else if (status.toLowerCase() === "in progress") {
-      return "text-blue-800 bg-blue-200";
+      return "text-blue-700 bg-blue-50 border-blue-200";
     } else {
-      return "text-gray-800 bg-gray-200";
+      return "text-gray-700 bg-gray-50 border-gray-200";
     }
   };
 
   const [statusColorClass, setStatusColorClass] = useState(
     getStatusColorClass(data.status)
   );
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     setStatusColorClass(getStatusColorClass(data.status));
   }, [data.status]);
+  
   return (
-    <div className="w-full max-w-4xl rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow ease-in-out m-4">
+    <div className="group w-full rounded-xl overflow-hidden bg-white border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300 ease-in-out hover:-translate-y-1">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
-          <div className="relative h-48 w-full md:w-80 md:h-full rounded p-2">
-            <Image
-              src={data.image?.file?.url}
-              alt={data.title}
-              layout="fill"
-              objectFit="contain"
-              unoptimized
-            />
+          <div className="relative h-48 w-full md:w-80 md:h-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+            {data.image && !imageError ? (
+              <Image
+                src={data.image}
+                alt={data.organization || data.title}
+                layout="fill"
+                objectFit="contain"
+                unoptimized
+                onError={() => setImageError(true)}
+                className="p-4"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-400">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">💼</div>
+                  <div className="text-sm">No Image</div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="p-8 flex flex-col justify-between w-full">
+        <div className="p-6 flex flex-col justify-between w-full">
           <div>
-            <div className="flex justify-between items-center mb-2  w-full">
-              <h2 className="font-bold text-2xl text-gray-800 flex items-center">
-                {data.organization}
-                {data.reference && (
-                  <a
-                    href={getAbsoluteUrl(data.reference)}
-                    className="flex items-center ml-2"
-                    aria-label={`Visit ${data.organization}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
-                  </a>
-                )}
-              </h2>
-
-              <span
-                className={`p-2 text-sm font-semibold rounded-full ${statusColorClass}`}
-              >
-                {data.status}
-              </span>
+            <div className="flex justify-between items-start mb-3 gap-4">
+              <div className="flex-1 min-w-0">
+                <h2 className="font-bold text-xl text-gray-800 group-hover:text-blue-600 transition-colors flex items-center gap-2">
+                  {data.organization}
+                  {data.reference && (
+                    <a
+                      href={getAbsoluteUrl(data.reference)}
+                      className="flex items-center"
+                      aria-label={`Visit ${data.organization}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="h-4 w-4 text-gray-400 hover:text-blue-600 transition-colors flex-shrink-0" />
+                    </a>
+                  )}
+                </h2>
+                <div className="flex items-center gap-2 mt-2">
+                  <User className="h-4 w-4 text-gray-500" />
+                  <span className="text-gray-700 font-medium">{data.role}</span>
+                </div>
+              </div>
+              {statusColorClass && (
+                <span
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg border ${statusColorClass} flex-shrink-0`}
+                >
+                  {data.status}
+                </span>
+              )}
             </div>
 
-            <p className="hidden md:inline-flex text-gray-700 text-base mb-3">
+            <p className="text-gray-700 text-sm mb-4 line-clamp-3">
               {data.description}
             </p>
-            <div className="flex text-sm md:text-md items-center mb-2">
-              <User className="h-4 w-4 mr-2 text-gray-600" />
-              <span className="text-gray-700">Role: {data.role}</span>
-            </div>
 
-            <div className="flex flex-wrap items-center text-sm text-gray-600 mb-2">
-              <div className="flex items-center mr-4 mb-2">
-                <Calendar className="h-4 w-4 mr-2" />
-                <span>
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
+              <div className="flex items-center gap-2">
+                <div className="p-1.5 rounded-md bg-gray-100 group-hover:bg-blue-50 transition-colors">
+                  <Calendar className="h-4 w-4 text-gray-600" />
+                </div>
+                <span className="font-medium">
                   {data.startdate} - {data?.enddate || "Present"}
                 </span>
               </div>
-              <div className="flex items-center mr-4 mb-2">
-                <Clock className="h-4 w-4 mr-2" />
-                <span>
-                  <span>Duration: {data.duration}</span>
-                </span>
+              <div className="flex items-center gap-2">
+                <div className="p-1.5 rounded-md bg-gray-100 group-hover:bg-blue-50 transition-colors">
+                  <Clock className="h-4 w-4 text-gray-600" />
+                </div>
+                <span className="font-medium">{data.duration}</span>
               </div>
-              <div className="flex items-center mr-4 mb-2">
-                <MapPin className="h-4 w-4 mr-2" />
-                <span>
-                  {data.location} ({data.workType})
-                </span>
-              </div>
-              {data.employmentType && <div className="flex items-center">
-                <Briefcase className="h-4 w-4 mr-2" />
-                <span>{data.employmentType}</span>
-              </div>}
-            </div>
-          </div>
-
-          <div className="flex items-start">
-            <Wrench className="h-4 w-4 mr-2 mt-1 text-gray-600 md:mb-4" />
-            <div className="flex">
-              <span className="text-gray-700 mr-2">{"Tools:"}</span>
-              <div className="flex flex-wrap gap-2">
-                {data.tools.map((tool, index) => (
-                  <span
-                    key={index}
-                    className="px-2 py-1 text-xs font-semibold text-gray-700 bg-gray-200 rounded-full"
-                  >
-                    {tool}
+              {data.location && (
+                <div className="flex items-center gap-2">
+                  <div className="p-1.5 rounded-md bg-gray-100 group-hover:bg-blue-50 transition-colors">
+                    <MapPin className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <span className="font-medium">
+                    {data.location} {data.workType && `(${data.workType})`}
                   </span>
-                ))}
-              </div>
+                </div>
+              )}
+              {data.employmentType && (
+                <div className="flex items-center gap-2">
+                  <div className="p-1.5 rounded-md bg-gray-100 group-hover:bg-blue-50 transition-colors">
+                    <Briefcase className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <span className="font-medium">{data.employmentType}</span>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* <div className="flex justify-start space-x-4 mt-2 md:mt-4">
-            <BlackButton href={data.github}>Website</BlackButton>
-          </div> */}
+          <div className="mt-4 pt-4 border-t border-gray-100">
+            <div className="flex items-start gap-2">
+              <Wrench className="h-4 w-4 mt-1 text-gray-500 flex-shrink-0" />
+              <div className="flex-1">
+                <span className="text-gray-700 text-sm font-medium mr-2">Tools:</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {data.tools && data.tools.length > 0 ? (
+                    data.tools.map((tool, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-xs font-semibold text-gray-700 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                      >
+                        {tool}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-gray-400 text-sm">No tools listed</span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

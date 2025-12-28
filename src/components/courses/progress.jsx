@@ -1,19 +1,10 @@
 import React from "react";
 
-const Progress = ({ progress }) => {
-  const getStatusColorClass = (progress) => {
-    switch (progress) {
-      case 100:
-        return "bg-green-600";
-      default:
-        return "bg-blue-600";
-    }
-  };
-  const statusColorClass = getStatusColorClass(progress);
+const Progress = ({ progress, colorClass = "bg-blue-500" }) => {
   return (
-    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+    <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
       <div
-        className={`${statusColorClass} h-2.5 rounded-full transition-all duration-300 ease-in-out`}
+        className={`${colorClass} h-2 rounded-full transition-all duration-500 ease-out shadow-sm`}
         style={{ width: `${progress}%` }}
       ></div>
     </div>
