@@ -33,7 +33,7 @@ export default async function Courses() {
             <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
           <p className="text-gray-600 text-lg mt-4">
-            A collection of courses I've completed and am currently pursuing
+            A collection of courses I&apos;ve completed and am currently pursuing
           </p>
         </div>
 

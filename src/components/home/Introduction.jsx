@@ -2,7 +2,7 @@
 import Image from "next/legacy/image";
 import EnhancedQuoteComponent from "./quote";
 import { FaSortDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 export default function Introduction() {
   const [drop, setDrop] = useState(false);
   useEffect(() => {
@@ -10,12 +10,12 @@ export default function Introduction() {
       setDrop(true);
     }, 3000);
   }, [drop]);
-  const titles = [
+  const titles = useMemo(() => [
     "I am a student at IIT Delhi",
     "I'm a Software Engineer",
     "I love to code",
     // Add more titles as needed
-  ];
+  ], []);
   const [text, setText] = useState("");
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
 
