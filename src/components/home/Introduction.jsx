@@ -36,7 +36,7 @@ export default function Introduction() {
     }, 100);
 
     return () => clearInterval(timer);
-  }, [currentTitleIndex]);
+  }, [currentTitleIndex, titles]);
   return (
     (<div className="h-screen w-screen  space-y-8 p-8">
       <div className=" grid grid-cols-1 lg:grid-cols-5 pt-8 space-y-8">
