@@ -1,19 +1,16 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import SignOutButton from "../buttons/signout-button";
-import { useSession } from "next-auth/react";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-  const session = useSession();
 
   const BUTTONS = [
-    // { route: "experience", text: "Experience" },
-    // { route: "projects", text: "Projects" },
-    // { route: "skills", text: "Skills" },
-    // { route: "courses", text: "Courses" },
+    { route: "experience", text: "Experience" },
+    { route: "projects", text: "Projects" },
+    { route: "skills", text: "Skills" },
+    { route: "courses", text: "Courses" },
     // { route: "cv", text: "Resume" },
     // { route: "watchlog", text: "Watchlog" },
   ];
@@ -58,7 +55,6 @@ export default function NavBar() {
             {BUTTONS.map((button) => (
               <NavButton key={button.route} route={button.route} text={button.text} />
             ))}
-            {session.status !== "authenticated" ? null : <SignOutButton />}
           </div>
         </div>
       </div>

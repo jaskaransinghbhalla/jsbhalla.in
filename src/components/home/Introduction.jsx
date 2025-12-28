@@ -78,18 +78,17 @@ export default function Introduction() {
           </div> */}
         </div>
 
-        <div className=" col-span-1 grid lg:order-3 justify-items-center">
-          <Image
-            className="rounded-full shadow-lg "
-            src="/photo.jpg"
-            unoptimized
-            alt="Jaskaran Singh Bhalla"
-            width={240}
-            height={288}
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+        <div className="col-span-1 grid lg:order-3 justify-items-center">
+          <div className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72">
+            <Image
+              className="rounded-full object-cover"
+              src="/photo.jpeg"
+              unoptimized
+              alt="Jaskaran Singh Bhalla"
+              layout="fill"
+              sizes="(max-width: 640px) 8rem, (max-width: 1024px) 13rem, (max-width: 1280px) 15rem, 18rem"
+            />
+          </div>
         </div>
 
         <div className=" col-span-1 lg:order-4"></div>

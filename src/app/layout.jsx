@@ -1,6 +1,5 @@
 import "../../globals.css";
 import NavBar from "../components/layout/navbar";
-import NextAuthProvider from "@/providers/NextAuthProvider";
 export const metadata = {
   title: "Jaskaran Singh Bhalla",
   description:
@@ -11,7 +10,6 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
       <body className={` flex flex-col min-h-screen`}>
-        <NextAuthProvider>
           <NavBar />
           <div className="flex-grow">
             <div className="h-32 max-h-full md:max-h-screen">
@@ -22,7 +20,6 @@ export default async function RootLayout({ children }) {
               </div>
             </div>
           </div>
-        </NextAuthProvider>
       </body>
     </html>
   );

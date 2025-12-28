@@ -1,12 +1,23 @@
 "use client";
 import BlackButton from "../buttons/ButtonStyleTwo";
 import Image from "next/legacy/image";
-import { Calendar, Clock, User, Wrench, MapPin, Briefcase } from "lucide-react";
+import { Calendar, Clock, User, Wrench, MapPin, Briefcase, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function Card({ data }) {
+  const getAbsoluteUrl = (url) => {
+    if (!url) return "";
+    // If URL already has a protocol, return as is
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      return url;
+    }
+    // Otherwise, prepend https://
+    return `https://${url}`;
+  };
+
   const getStatusColorClass = (status) => {
+    if (!status) return null;
     if (
       status.toLowerCase() === "complete" ||
       status.toLowerCase() === "done"
@@ -46,8 +57,19 @@ export default function Card({ data }) {
         <div className="p-8 flex flex-col justify-between w-full">
           <div>
             <div className="flex justify-between items-center mb-2  w-full">
-              <h2 className="font-bold text-2xl text-gray-800 px-2 hover:underline">
-                <Link href={data.reference}>{data.organization}</Link>
+              <h2 className="font-bold text-2xl text-gray-800 flex items-center">
+                {data.organization}
+                {data.reference && (
+                  <a
+                    href={getAbsoluteUrl(data.reference)}
+                    className="flex items-center ml-2"
+                    aria-label={`Visit ${data.organization}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="h-5 w-5 text-gray-600 hover:text-gray-900 transition-colors" />
+                  </a>
+                )}
               </h2>
 
               <span
@@ -69,7 +91,7 @@ export default function Card({ data }) {
               <div className="flex items-center mr-4 mb-2">
                 <Calendar className="h-4 w-4 mr-2" />
                 <span>
-                  {data.startdate} - {data.enddate}
+                  {data.startdate} - {data?.enddate || "Present"}
                 </span>
               </div>
               <div className="flex items-center mr-4 mb-2">
@@ -84,10 +106,10 @@ export default function Card({ data }) {
                   {data.location} ({data.workType})
                 </span>
               </div>
-              <div className="flex items-center">
+              {data.employmentType && <div className="flex items-center">
                 <Briefcase className="h-4 w-4 mr-2" />
                 <span>{data.employmentType}</span>
-              </div>
+              </div>}
             </div>
           </div>
 
@@ -108,9 +130,9 @@ export default function Card({ data }) {
             </div>
           </div>
 
-          <div className="flex justify-start space-x-4 mt-2 md:mt-4">
+          {/* <div className="flex justify-start space-x-4 mt-2 md:mt-4">
             <BlackButton href={data.github}>Website</BlackButton>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

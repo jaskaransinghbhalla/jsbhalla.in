@@ -1,7 +1,5 @@
-import { getServerSession } from "next-auth";
 import Card from "../../components/courses/card";
 import { getCourses } from "./actions";
-import { Authenticate } from "@/components/authenticate";
 
 const CoursesCategory = ({ courses }) => (
   <div>
@@ -24,8 +22,6 @@ const CoursesCategory = ({ courses }) => (
 
 export default async function Courses() {
   const courses = await getCourses();
-  const session = await getServerSession();
-  if (session) {
     return (
       <div className="flex flex-col items-center mb-8">
         <div className=" w-full px-4 mt-5 flex">
@@ -41,7 +37,4 @@ export default async function Courses() {
         </div>
       </div>
     );
-  } else {
-    return <Authenticate callbackUrl="/courses" />;
-  }
 }
