@@ -4,56 +4,54 @@ export default function calculateDuration(startDate, endDate) {
   const start = new Date(startDate);
   if (isNaN(start.getTime())) return "";
   
-  // Normalize dates to start of month for consistent month calculations
-  const startYear = start.getFullYear();
-  const startMonth = start.getMonth();
-  
-  let endYear, endMonth;
-  if (endDate) {
-    const end = new Date(endDate);
-    if (isNaN(end.getTime())) return "";
-    endYear = end.getFullYear();
-    endMonth = end.getMonth();
-  } else {
-    // For ongoing positions, use current date but normalize to start of month
-    const now = new Date();
-    endYear = now.getFullYear();
-    endMonth = now.getMonth();
+  const end = endDate ? new Date(endDate) : new Date();
+  if (isNaN(end.getTime())) return "";
+
+  // Calculate exact difference in milliseconds
+  const differenceInTime = end.getTime() - start.getTime();
+  const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
+
+  // If less than 30 days, show days
+  if (differenceInDays < 30) {
+    return `${differenceInDays} day${differenceInDays !== 1 ? "s" : ""}`;
   }
 
-  // Calculate the number of months spanned (inclusive of both start and end months)
-  // If experience spans across months, count each month as a full month
-  const yearsDiff = endYear - startYear;
-  const monthsDiff = endMonth - startMonth;
-  
-  // Count months inclusively: if start is Jan and end is Feb, that's 2 months
-  // Add 1 to include both the start and end months
-  let months = yearsDiff * 12 + monthsDiff + 1;
-  
-  // If start and end are in the same month, it's still 1 month
-  if (yearsDiff === 0 && monthsDiff === 0) {
-    months = 1;
+  // Calculate exact months and years
+  let years = end.getFullYear() - start.getFullYear();
+  let months = end.getMonth() - start.getMonth();
+  let days = end.getDate() - start.getDate();
+
+  // Adjust for negative days
+  if (days < 0) {
+    months--;
+    // Get days in the previous month
+    const lastDayOfPrevMonth = new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+    days += lastDayOfPrevMonth;
   }
 
-  // Calculate days for cases less than a month (only if we have actual end date)
-  if (endDate && months === 1) {
-    const end = new Date(endDate);
-    const differenceInTime = end.getTime() - start.getTime();
-    const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24));
-    
-    if (differenceInDays < 30) {
-      return `${differenceInDays} days`;
-    }
+  // If end date is more than 15 days into the month, count it as a full month
+  if (end.getDate() > 15) {
+    months++;
+    days = 0; // Reset days since we're counting it as a full month
   }
 
-  const years = Math.floor(months / 12);
-  const remainingMonths = months % 12;
-  
+  // Adjust for negative months
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  // Format the output
+  const parts = [];
   if (years > 0) {
-    if (remainingMonths > 0) {
-      return `${years} year${years > 1 ? "s" : ""} ${remainingMonths} month${remainingMonths > 1 ? "s" : ""}`;
-    }
-    return `${years} year${years > 1 ? "s" : ""}`;
+    parts.push(`${years} year${years !== 1 ? "s" : ""}`);
   }
-  return `${months} month${months > 1 ? "s" : ""}`;
+  if (months > 0) {
+    parts.push(`${months} month${months !== 1 ? "s" : ""}`);
+  }
+  if (days > 0 && years === 0 && months === 0) {
+    parts.push(`${days} day${days !== 1 ? "s" : ""}`);
+  }
+
+  return parts.length > 0 ? parts.join(" ") : "0 days";
 }

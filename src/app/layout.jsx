@@ -14,15 +14,9 @@ export default async function RootLayout({ children }) {
       <body className={` flex flex-col min-h-screen`}>
           <NavBar />
           <Analytics/>
-          <div className="flex-grow">
-            <div className="h-32 max-h-full md:max-h-screen">
-              <div className="flex flex-col h-screen justify-between">
-                <div className="flex flex-col items-center mb-8">
-                  {children}
-                </div>
-              </div>
-            </div>
-          </div>
+          <main className="flex-grow w-full">
+            {children}
+          </main>
       </body>
     </html>
   );

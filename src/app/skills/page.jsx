@@ -26,29 +26,31 @@ const SkillsCategory = ({ category, skills }) => (
 export default async function Skills() {
   const skillsData = await getSkillsData();
   return (
-    <div className="flex flex-col items-center mb-16 min-h-screen">
-      <div className="w-full max-w-7xl px-4 lg:px-8 mt-8 mb-12">
-        <div className="mb-2">
-          <h2 className="text-5xl font-bold text-gray-800 mb-3">
-            Skills
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-        </div>
-        <p className="text-gray-600 text-lg mt-4">
-          Technologies and tools I work with across different domains
-        </p>
-      </div>
-
-      <div className="w-full max-w-7xl px-4 lg:px-8">
-        {Object.keys(skillsData).length > 0 ? (
-          Object.entries(skillsData).map(([category, skills]) => (
-            <SkillsCategory key={category} category={category} skills={skills} />
-          ))
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-gray-500 text-lg">No skills available.</p>
+    <div className="w-full flex justify-center mb-16 min-h-screen">
+      <div className="w-full max-w-7xl px-6 lg:px-12">
+        <div className="mt-8 mb-12">
+          <div className="mb-2">
+            <h2 className="text-5xl font-bold text-gray-800 mb-3">
+              Skills
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </div>
-        )}
+          <p className="text-gray-600 text-lg mt-4">
+            Technologies and tools I work with across different domains
+          </p>
+        </div>
+
+        <div>
+          {Object.keys(skillsData).length > 0 ? (
+            Object.entries(skillsData).map(([category, skills]) => (
+              <SkillsCategory key={category} category={category} skills={skills} />
+            ))
+          ) : (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-lg">No skills available.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
