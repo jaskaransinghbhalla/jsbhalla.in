@@ -1,6 +1,8 @@
 import Card from "../../components/experience/card";
 import { getExperience } from "./actions";
 
+export const revalidate = 7200; // Revalidate every 2 hours
+
 export default async function Experience() {
   const projects = await getExperience();
   return (
@@ -11,13 +13,17 @@ export default async function Experience() {
         </h2>
       </div>
       <div className="flex-wrap my-3 items-center">
-        {projects.map((item) => {
-          return (
-            <div className="py-4 mx-3" key={item.title}>
-              <Card data={item} key={item.title} />
-            </div>
-          );
-        })}
+        {projects.length > 0 ? (
+          projects.map((item) => {
+            return (
+              <div className="py-4 mx-3" key={item.organization || item.role}>
+                <Card data={item} key={item.organization || item.role} />
+              </div>
+            );
+          })
+        ) : (
+          <p className="text-gray-600">No experience available.</p>
+        )}
       </div>
     </div>
   );

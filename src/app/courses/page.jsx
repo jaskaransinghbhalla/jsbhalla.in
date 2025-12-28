@@ -1,6 +1,8 @@
 import Card from "../../components/courses/card";
 import { getCourses } from "./actions";
 
+export const revalidate = 7200; // Revalidate every 2 hours
+
 const CoursesCategory = ({ courses }) => (
   <div>
     <div>
@@ -31,9 +33,13 @@ export default async function Courses() {
         </div>
 
         <div className="my-3 items-center">
-          {Object.entries(courses).map(([category, item]) => (
-            <CoursesCategory key={category} courses={item} />
-          ))}
+          {Object.keys(courses).length > 0 ? (
+            Object.entries(courses).map(([category, item]) => (
+              <CoursesCategory key={category} courses={item} />
+            ))
+          ) : (
+            <p className="text-gray-600">No courses available.</p>
+          )}
         </div>
       </div>
     );

@@ -1,6 +1,9 @@
 import { getProjects } from "./actions";
 import Timeline from "../../components/timeline/timeline";
 import Card from "../../components/timeline/card";
+
+export const revalidate = 7200; // Revalidate every 2 hours
+
 export default async function Projects() {
   const projects = await getProjects();
   return (
@@ -10,18 +13,24 @@ export default async function Projects() {
           Projects
         </h2>
       </div>
-      <div className="flex-wrap my-6 items-center hidden md:inline">
-        {<Timeline projects={projects} />}
-      </div>
-      <div className="flex-wrap my-6 mx-4 items-center md:hidden">
-        {projects.map((item) => {
-          return (
-            <div className="py-4" key={item.title}>
-              <Card data={item} key={item.title} />
-            </div>
-          );
-        })}
-      </div>
+      {projects.length > 0 ? (
+        <>
+          <div className="flex-wrap my-6 items-center hidden md:inline">
+            <Timeline projects={projects} />
+          </div>
+          <div className="flex-wrap my-6 mx-4 items-center md:hidden">
+            {projects.map((item) => {
+              return (
+                <div className="py-4" key={item.title}>
+                  <Card data={item} key={item.title} />
+                </div>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <p className="text-gray-600">No projects available.</p>
+      )}
     </div>
   );
 }

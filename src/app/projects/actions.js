@@ -1,10 +1,13 @@
-import { revalidatePath } from "next/cache";
 import notion from "../../lib/notion";
 import formatDate from "../../utils/format-date";
 import calculateDuration from "../../utils/duration";
 export async function getProjects() {
-  const databaseId = process.env.PROJECTS_DB_ID;
-  const response = await notion.databases.query({
+  try {
+    const databaseId = process.env.PROJECTS_DB_ID;
+    if (!databaseId) {
+      return [];
+    }
+    const response = await notion.databases.query({
     database_id: databaseId,
     sorts: [
       {
@@ -26,30 +29,35 @@ export async function getProjects() {
 
   // sort by date.end
   response.results.sort((a, b) => {
-    return (
-      new Date(b.properties.Date.date?.end) -
-      new Date(a.properties.Date.date?.end)
-    );
+    const dateA = a.properties.Date?.date?.end ? new Date(a.properties.Date.date.end) : new Date(0);
+    const dateB = b.properties.Date?.date?.end ? new Date(b.properties.Date.date.end) : new Date(0);
+    return dateB - dateA;
   });
 
   let filteredProperties = response.results.map((page) => {
+    const imageFile = page.properties.Image?.files?.[0];
+    const imageUrl = imageFile?.external?.url || imageFile?.file?.url || "";
+    
     return {
-      title: page.properties.Title.title[0].plain_text || "",
-      description: page.properties.Description.rich_text[0].plain_text || "",
-      github: page.properties.Github.url || "",
-      deployment: page.properties.Deployment.url || "",
-      image: page.properties.Image.files[0] || "",
-      isdeployed: page.properties.Deployed.checkbox || "",
-      startdate: formatDate(page.properties.Date.date?.start) || "",
-      enddate: formatDate(page.properties.Date.date?.end) || "",
-      status: page.properties.Status.status.name || "",
+      title: page.properties.Title?.title?.[0]?.plain_text || "",
+      description: page.properties.Description?.rich_text?.[0]?.plain_text || "",
+      github: page.properties.Github?.url || "",
+      deployment: page.properties.Deployment?.url || "",
+      image: imageUrl,
+      isdeployed: page.properties.Deployed?.checkbox || false,
+      startdate: formatDate(page.properties.Date?.date?.start) || "",
+      enddate: formatDate(page.properties.Date?.date?.end) || "",
+      status: page.properties.Status?.status?.name || "",
       duration:
         calculateDuration(
-          page.properties.Date.date?.start,
-          page.properties.Date.date?.end
+          page.properties.Date?.date?.start,
+          page.properties.Date?.date?.end
         ) || "",
     };
   });
-  revalidatePath("/projects", 7200);
   return filteredProperties;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return [];
+  }
 }

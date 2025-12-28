@@ -1,10 +1,13 @@
-import { revalidatePath } from "next/cache";
 import notion from "../../lib/notion";
 import formatDate from "../../utils/format-date";
 import calculateDuration from "../../utils/duration";
 export async function getExperience() {
-  const databaseId = process.env.EXPERIENCE_DB_ID;
-  const response = await notion.databases.query({
+  try {
+    const databaseId = process.env.EXPERIENCE_DB_ID;
+    if (!databaseId) {
+      return [];
+    }
+    const response = await notion.databases.query({
     database_id: databaseId,
     sorts: [
       {
@@ -30,12 +33,15 @@ export async function getExperience() {
   });
 
   let filteredProperties = response.results.map((page) => {
+    const imageFile = page.properties.Image?.files?.[0];
+    const imageUrl = imageFile?.external?.url || imageFile?.file?.url || "";
+    
     return {
       organization: page.properties.Organization?.title?.[0]?.plain_text || "",
       description: page.properties.Description?.rich_text?.[0]?.plain_text || "",
       role: page.properties.Role?.rich_text?.[0]?.plain_text || "",
       type: page.properties.Type?.select?.name || "",
-      image: page.properties.Image?.files?.[0] || "",
+      image: imageUrl,
       github: page.properties.Github?.url || "",
       startdate: formatDate(page.properties.Date?.date?.start) || "",
       ...(page.properties.Date?.date?.end
@@ -54,6 +60,9 @@ export async function getExperience() {
       // employmentType: page.properties.Employment?.select?.name || "",
     };
   });
-  revalidatePath("/experience", 7200);
   return filteredProperties;
+  } catch (error) {
+    console.error("Error fetching experience:", error);
+    return [];
+  }
 }
