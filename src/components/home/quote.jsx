@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const EnhancedQuoteComponent = () => {
   return (
-    <div className="max-w-fit md:max-w-4xl max-h-60 p-8 mx-3">
+    <div className="max-w-fit z-10 md:max-w-4xl max-h-60 p-8 mx-3">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

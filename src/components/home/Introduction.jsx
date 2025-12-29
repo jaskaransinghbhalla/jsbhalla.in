@@ -38,7 +38,7 @@ export default function Introduction() {
     return () => clearInterval(timer);
   }, [currentTitleIndex, titles]);
   return (
-    (<div className="h-screen w-screen  space-y-8 p-8">
+    (<div className="relative z-10 h-screen w-screen space-y-8 p-4">
       <div className=" grid grid-cols-1 lg:grid-cols-5 pt-8 space-y-8">
         <div className=" col-span-1 lg:order-1 "></div>
 
@@ -53,19 +53,15 @@ export default function Introduction() {
               return <span>{text}</span>;
             })()}
           </div>
-          {/* <div className="text-justify md:text-justify">
+          <div className="text-justify md:text-justify">
             <p className="my-2 py-2">
-              I am a pre-final year student at{" "}
-              <a className="font-semibold">
-                Indian Institute of Technology, New Delhi
-              </a>{" "}
-              pursuing my Bachelors&apos;s of Technology in Textile Engineering
-              with Minor Degree in{" "}
-              <span className="font-semibold">
-                Computer Science &amp; Entrepreneurship.
-              </span>
+              I'm a software developer at{" "}
+              <span className="font-semibold">Trential</span>
+              {" "}and a proud graduate of{" "}
+              <span className="font-semibold">IIT Delhi</span>
+              . Driven by a passion for software engineering, technology, and building impactful products.
             </p>
-
+{/* 
             <p className="my-2 py-2">
               I&apos;m a simple man who finds joy in listening to Punjabi music,
               engaging in deep conversations, and exploring new topics through
@@ -74,8 +70,8 @@ export default function Introduction() {
             <p className="my-2 py-2">
               I&apos;m always looking for new opportunities to learn and grow,
               so feel free to reach out to me!
-            </p>
-          </div> */}
+            </p> */}
+          </div>
         </div>
 
         <div className="col-span-1 grid lg:order-3 justify-items-center">
@@ -91,15 +87,11 @@ export default function Introduction() {
           </div>
         </div>
 
-        <div className=" col-span-1 lg:order-4"></div>
       </div>
       {/* Quote */}
       <div className="flex justify-center">
         <EnhancedQuoteComponent />
       </div>
-      {/* <div className="flex justify-center text-gray-200 animate-bounce">
-        {drop ? <FaSortDown size={70} /> : <></>}
-      </div> */}
     </div>)
   );
 }
