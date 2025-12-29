@@ -27,8 +27,19 @@ export default async function Experience() {
                     <Briefcase className="h-5 w-5 text-blue-600" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 font-medium">Total Experience</p>
-                    <p className="text-2xl font-bold text-gray-800">{totalExp.display}</p>
+                    <p className="text-sm text-gray-600 font-medium">
+                      Total Experience
+                    </p>
+                    <p className="text-2xl font-bold text-gray-800">
+                      {totalExp.display}
+                    </p>
+                    {typeof totalExp.totalMonths === "number" &&
+                      totalExp.totalMonths > 0 && (
+                        <p className="text-xs text-gray-500 mt-0.5">
+                          {totalExp.totalMonths} month
+                          {totalExp.totalMonths !== 1 ? "s" : ""} total
+                        </p>
+                      )}
                   </div>
                 </div>
               )}

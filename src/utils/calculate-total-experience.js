@@ -1,6 +1,6 @@
 export default function calculateTotalExperience(experiences) {
   if (!experiences || experiences.length === 0) {
-    return { years: 0, months: 0, display: "0 months" };
+    return { years: 0, months: 0, totalMonths: 0, display: "0 months" };
   }
 
   let totalMonths = 0;

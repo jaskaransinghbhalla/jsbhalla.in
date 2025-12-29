@@ -116,7 +116,14 @@ export default function Card({ data }) {
                 <div className="p-1.5 rounded-md bg-gray-100 group-hover:bg-blue-50 transition-colors">
                   <Clock className="h-4 w-4 text-gray-600" />
                 </div>
-                <span className="font-medium">{data.duration}</span>
+                <span className="font-medium">
+                  {typeof data.durationInMonths === "number" &&
+                  data.durationInMonths > 0
+                    ? `${data.durationInMonths} month${
+                        data.durationInMonths !== 1 ? "s" : ""
+                      }`
+                    : data.duration}
+                </span>
               </div>
               {data.location && (
                 <div className="flex items-center gap-2">

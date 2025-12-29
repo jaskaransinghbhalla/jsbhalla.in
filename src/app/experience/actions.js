@@ -1,6 +1,7 @@
 import notion from "../../lib/notion";
 import formatDate from "../../utils/format-date";
 import calculateDuration from "../../utils/duration";
+import calculateTotalExperience from "../../utils/calculate-total-experience";
 export async function getExperience() {
   try {
     const databaseId = process.env.EXPERIENCE_DB_ID;
@@ -35,6 +36,18 @@ export async function getExperience() {
   let filteredProperties = response.results.map((page) => {
     const imageFile = page.properties.Image?.files?.[0];
     const imageUrl = imageFile?.external?.url || imageFile?.file?.url || "";
+
+    // Calculate duration in months for this specific experience
+    const singleExperienceForCalc = [
+      {
+        rawStartDate: page.properties.Date?.date?.start,
+        rawEndDate: page.properties.Date?.date?.end || null,
+      },
+    ];
+
+    const { totalMonths: durationInMonths = 0 } = calculateTotalExperience(
+      singleExperienceForCalc
+    );
     
     return {
       organization: page.properties.Organization?.title?.[0]?.plain_text || "",
@@ -59,6 +72,7 @@ export async function getExperience() {
           page.properties.Date?.date?.start,
           page.properties.Date?.date?.end
         ) || "",
+      durationInMonths: durationInMonths,
       workType: page.properties.WorkType?.select?.name || "",
       location: page.properties.Location?.rich_text?.[0]?.plain_text || "",
       // employmentType: page.properties.Employment?.select?.name || "",
