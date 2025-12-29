@@ -5,6 +5,39 @@ import { Calendar, Clock, User, Wrench, MapPin, Briefcase, ExternalLink } from "
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const getMonthRangeLabel = (startDateStr, endDateStr) => {
+  if (!startDateStr) return "";
+
+  const start = new Date(startDateStr);
+  if (isNaN(start.getTime())) return "";
+
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const startMonth = monthNames[start.getMonth()];
+  const startYearShort = String(start.getFullYear()).slice(-2);
+  const startLabel = `${startMonth}'${startYearShort}`;
+
+  if (!endDateStr) {
+    return `${startLabel} - Present`;
+  }
+
+  const end = new Date(endDateStr);
+  if (isNaN(end.getTime())) {
+    return `${startLabel} - Present`;
+  }
+
+  const endMonth = monthNames[end.getMonth()];
+  const endYearShort = String(end.getFullYear()).slice(-2);
+  const endLabel = `${endMonth}'${endYearShort}`;
+
+  // If it spans only a single calendar month, just show that month
+  if (start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth()) {
+    return startLabel;
+  }
+
+  // Otherwise show start and end months
+  return `${startLabel} - ${endLabel}`;
+};
+
 export default function Card({ data }) {
   const getAbsoluteUrl = (url) => {
     if (!url) return "";
@@ -109,7 +142,7 @@ export default function Card({ data }) {
                   <Calendar className="h-4 w-4 text-gray-600" />
                 </div>
                 <span className="font-medium">
-                  {data.startdate} - {data?.enddate || "Present"}
+                  {getMonthRangeLabel(data.rawStartDate, data.rawEndDate)}
                 </span>
               </div>
               <div className="flex items-center gap-2">
