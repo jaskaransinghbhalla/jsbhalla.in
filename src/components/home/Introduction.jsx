@@ -55,13 +55,13 @@ export default function Introduction() {
           </div>
           <div className="text-justify md:text-justify">
             <p className="my-2 py-2">
-              I'm a software developer at{" "}
+              {"I'm a software developer at"}
               <span className="font-semibold">Trential</span>
-              {" "}and a proud graduate of{" "}
+              {"and a proud graduate of"}
               <span className="font-semibold">IIT Delhi</span>
-              . Driven by a passion for software engineering, technology, and building impactful products.
+              {". Driven by a passion for software engineering, technology, and building impactful products."}
             </p>
-{/* 
+            {/* 
             <p className="my-2 py-2">
               I&apos;m a simple man who finds joy in listening to Punjabi music,
               engaging in deep conversations, and exploring new topics through
