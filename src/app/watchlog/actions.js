@@ -44,13 +44,12 @@ export async function getWatchlogs() {
       Date: { property: "Date" },
       Status: { property: "Status" },
       Favourite: { property: "Favourite" },
-      Image: { property: "Image" },
     },
   });
 
   let filteredProperties = response.results.map((page) => {
-    const imageFile = page.properties.Image?.files?.[0];
-    const imageUrl = imageFile?.external?.url || imageFile?.file?.url || "";
+    const cover = page.cover;
+    const imageUrl = cover?.external?.url || cover?.file?.url || "";
     
     // Try different property names and types for title
     const title = 
